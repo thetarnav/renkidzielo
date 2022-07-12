@@ -1,0 +1,8 @@
+{
+	"name": "renkidzielo-monorepo",
+	"version": "0.0.1",
+	"author": "Damian Tarnawski <gthetarnav@gmail.com>",
+	"private": true,
+	"scripts": {},
+	"packageManager": "pnpm@7.4.0"
+}

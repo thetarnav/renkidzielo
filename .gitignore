@@ -21,3 +21,8 @@ pnpm-debug.log*
 
 # IDE Settings
 .vscode/settings.json
+
+# Strapi
+*.cache
+build
+.strapi-updater.json

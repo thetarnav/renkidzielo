@@ -1,0 +1,37 @@
+.mobile-nav {
+	--margin: theme(spacing.8);
+	--size: theme(spacing.18);
+	--shift: theme(spacing.1);
+
+	--far-pos: calc(100% - (var(--size) + var(--margin)));
+	--far-shift: calc(100% - (var(--size) + var(--margin) - var(--shift)));
+	--close-pos: calc(100% - var(--margin));
+	--close-shift: calc(100% - (var(--margin) + var(--shift)));
+
+	transition: clip-path 0.4s;
+	clip-path: polygon(
+		var(--far-shift) var(--far-pos),
+		var(--close-pos) var(--far-shift),
+		var(--close-shift) var(--close-pos),
+		var(--far-pos) var(--close-shift)
+	);
+
+	@apply fixed z-[2000] inset-0 bg-black text-white
+    flex flex-col justify-center items-stretch space-y-[0.2vh]
+    px-6 py-24;
+
+	@apply sm:flex-row sm:flex-wrap sm:items-center sm:justify-end sm:space-y-[0.1vh] sm:pt-6;
+	@apply md:hidden;
+}
+.mobile-nav:global(.open) {
+	clip-path: polygon(0 -5%, 130% 0, 130% 130%, -20% 130%);
+}
+
+.toggle-button {
+	position: absolute;
+	right: var(--margin);
+	bottom: var(--margin);
+	width: var(--size);
+	height: var(--size);
+	transform: rotate(4deg);
+}

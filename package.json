@@ -4,7 +4,7 @@
 	"author": "Damian Tarnawski <gthetarnav@gmail.com>",
 	"private": true,
 	"scripts": {
-		"dev": "cd renkidzielo && pnpm run dev",
+		"dev": "pnpm -dir renkidzielo run dev",
 		"format": "prettier --plugin-search-dir=. -w \"renkidzielo/**/*.{js,ts,json,scss,css,tsx,astro}\"",
 		"update-deps": "taze -w -r && pnpm i"
 	},

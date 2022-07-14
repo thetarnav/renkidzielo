@@ -1,11 +1,12 @@
+const path = require("path")
+
 // https://docs.astro.build/en/guides/styling/#postcss
 module.exports = {
-	plugins: {
-		"postcss-import": {},
+	plugins: [
 		// https://tailwindcss.com/docs/using-with-preprocessors#nesting
-		"tailwindcss/nesting": {},
+		require("tailwindcss/nesting"),
 		// https://tailwindcss.com/docs/using-with-preprocessors#using-post-css-as-your-preprocessor
-		tailwindcss: {},
-		autoprefixer: {},
-	},
+		require("tailwindcss"),
+		require("autoprefixer"),
+	],
 }

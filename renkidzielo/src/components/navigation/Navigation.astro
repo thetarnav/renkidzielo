@@ -44,7 +44,7 @@ const routes: {
 				<p>~i~</p>
 			</a>
 		))}
-		<Socials />
+		<Socials class="absolute bottom-6 left-6" dark />
 	</nav>
 </MobileNavOverlay>
 
@@ -54,6 +54,7 @@ const routes: {
     flex flex-col justify-center items-stretch space-y-[0.2vh];
 		@apply sm:flex-row sm:flex-wrap sm:items-center sm:justify-end sm:space-y-[0.1vh] sm:pt-6;
 	}
+
 	.mobile-nav-item {
 		@apply pl-4 pt-4 pb-2 pr-12 border border-transparent rounded
 			flex space-x-6 justify-end
@@ -63,6 +64,7 @@ const routes: {
 	.mobile-nav-item.visiting {
 		@apply border-white opacity-30;
 	}
+
 	.icon {
 		@apply w-10 h-10;
 	}

@@ -1,33 +1,13 @@
 .socials {
 	@apply max-w-max flex;
-}
-
-.socials:global(.type-outline) {
 	@apply border border-gray-900 divide-x divide-gray-900 rounded;
 
-	> .icon-button,
-	> .button-component {
-		background: transparent !important;
-		@apply rounded-none;
-	}
-	.button-component {
-		@apply px-3 text-gray-900;
-	}
-	.icon {
-		@apply text-gray-900;
-	}
-
-	&.white {
-		> *,
-		.icon {
-			color: $gray100 !important;
-		}
-
+	&.dark {
 		@apply border-gray-100  divide-white;
 	}
 }
 
-.socials:global(.type-contact) {
+/* .socials:global(.type-contact) {
 	@apply space-x-4;
 	> * {
 		@apply h-14 min-w-[3.5rem];
@@ -35,4 +15,4 @@
 	> .main {
 		@apply bg-primary;
 	}
-}
+} */

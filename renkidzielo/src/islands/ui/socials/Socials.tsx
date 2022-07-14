@@ -5,27 +5,24 @@ import { ETSY_URL, ALLEGRO_URL, ISTAGRAM_URL } from "@/utils/variables"
 import styles from "./Socials.module.css"
 
 const Socials: Component<{
-	type?: "outline" | "contact"
+	class?: string
+	dark?: boolean
 }> = props => {
 	return (
-		<div class={`${styles.socials} type-${props.type ?? "outline"}`}>
-			{/* <IconButton
-    icon="ig"
-    :href="links.ig"
-    :class="type === 'contact' ? 'outline white' : ''"
-  /> */}
-			<Button
-				anchor
-				href={ETSY_URL}
-				// :class="type === 'contact' ? 'outline white' : ''"
-			>
+		<div
+			class={`${styles.socials} ${props.class ?? ""}`}
+			classList={{
+				[styles["dark"]]: props.dark,
+			}}
+		>
+			{/* Replace with IconButton */}
+			<Button href={ISTAGRAM_URL} noBackground>
+				IG
+			</Button>
+			<Button href={ETSY_URL} noBackground>
 				Etsy
 			</Button>
-			<Button
-				anchor
-				href={ALLEGRO_URL}
-				// :trailing-icon="type === 'contact' ? 'bag' : ''"
-			>
+			<Button href={ALLEGRO_URL} noBackground>
 				Allegro
 			</Button>
 		</div>

@@ -18,6 +18,7 @@ importers:
     specifiers:
       '@astrojs/solid-js': ^0.3.1
       '@astrojs/tailwind': ^0.2.4
+      '@solid-primitives/props': ^2.1.8
       '@tailwindcss/aspect-ratio': ^0.4.0
       astro: ^1.0.0-beta.69
       autoprefixer: ^10.4.7
@@ -25,6 +26,7 @@ importers:
       solid-js: ^1.4.7
       tailwindcss: ^3.1.6
     dependencies:
+      '@solid-primitives/props': 2.1.8_solid-js@1.4.7
       solid-js: 1.4.7
     devDependencies:
       '@astrojs/solid-js': 0.3.1_3czbc23nqkmh4e66ssbg3l5ccy
@@ -595,6 +597,23 @@ packages:
       '@proload/core': 0.3.2
       tsm: 2.2.1
     dev: true
+
+  /@solid-primitives/props/2.1.8_solid-js@1.4.7:
+    resolution: {integrity: sha512-1rVxFLHK/CQ1vnHS+91u9SxSG8F7F46sXqMFMih92Gb9LN/c2SkdIssVymd03i3ayDXongEOuZHyUm0LkG85xA==}
+    peerDependencies:
+      solid-js: ^1.3.0
+    dependencies:
+      '@solid-primitives/utils': 2.2.1_solid-js@1.4.7
+      solid-js: 1.4.7
+    dev: false
+
+  /@solid-primitives/utils/2.2.1_solid-js@1.4.7:
+    resolution: {integrity: sha512-vaBO3MGOpjzitbSAVuJkYZnzNPRl6sRrw2do390DEBbfeqMfPpW4fAEb5/tI4b5T13V1xAY+giHoxqvVg2SRhQ==}
+    peerDependencies:
+      solid-js: ^1.4.1
+    dependencies:
+      solid-js: 1.4.7
+    dev: false
 
   /@tailwindcss/aspect-ratio/0.4.0_tailwindcss@3.1.6:
     resolution: {integrity: sha512-WJu0I4PpqNPuutpaA9zDUq2JXR+lorZ7PbLcKNLmb6GL9/HLfC7w3CRsMhJF4BbYd/lkY6CfXOvkYpuGnZfkpQ==}

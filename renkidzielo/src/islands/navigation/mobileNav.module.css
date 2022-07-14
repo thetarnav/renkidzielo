@@ -26,6 +26,15 @@
 .mobile-nav:global(.open) {
 	clip-path: polygon(0 -5%, 130% 0, 130% 130%, -20% 130%);
 }
+.mobile-nav:before {
+	content: "";
+	@apply absolute -z-1 inset-0;
+	background: radial-gradient(
+		227% 175% at -137% 142%,
+		theme(colors.orange.900) 0%,
+		theme(colors.black) 100%
+	);
+}
 
 .toggle-button {
 	position: absolute;

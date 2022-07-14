@@ -1,7 +1,63 @@
 ---
-import MobileNavOverlay from "./MobileNavOverlay"
+import MobileNavOverlay from "@islands/navigation/MobileNavOverlay"
+
+type RouteUID = "start" | "lamps" | "belt-bags" | "paintings" | "gallery"
+
+const currentPath = Astro.canonicalURL.pathname
+const currentUID = (currentPath.split("/")[1] || "start") as RouteUID
+
+const routes: {
+	path: string
+	name: string
+	uid: RouteUID
+}[] = [
+	{
+		path: "/",
+		name: "Start",
+		uid: "start",
+	},
+	{
+		path: "/lamps",
+		name: "Lampy",
+		uid: "lamps",
+	},
+	{
+		path: "/belt-bags",
+		name: "Nerki",
+		uid: "belt-bags",
+	},
+	{
+		path: "/paintings",
+		name: "Obrazy",
+		uid: "paintings",
+	},
+]
 ---
 
 <MobileNavOverlay client:load>
-	<p>hello</p>
+	{routes.map(({ path, name, uid }) => (
+		<a href={path} class={`mobile-nav-item ${uid === currentUID ? "visiting" : ""}`}>
+			<h2>{name}</h2>
+			{/* TODO: replace with Icon component */}
+			<p>~i~</p>
+		</a>
+	))}
 </MobileNavOverlay>
+
+<style>
+	.mobile-nav-item {
+		@apply pl-4 pt-4 pb-2 pr-12 border border-transparent rounded
+			flex space-x-6 justify-end
+	 		text-white heading-2
+			sm:w-1/2;
+	}
+	.mobile-nav-item.visiting {
+		@apply border-white opacity-30;
+	}
+	.icon {
+		@apply w-10 h-10;
+	}
+	.icon :global(path, rect) {
+		stroke-width: 2.8px;
+	}
+</style>

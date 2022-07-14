@@ -10,7 +10,7 @@ const MobileNavOverlay: ParentComponent = props => {
 			{props.children}
 			{/* TODO: replace by a IconButton once it's done */}
 			<button class={styles["toggle-button"]} onClick={toggle}>
-				toggle
+				{isOpen() ? "Close" : "Open"}
 			</button>
 		</div>
 	)

@@ -1,7 +1,6 @@
 ---
-import ContactButton from "@islands/Contact"
-import Contact from "@components/Contact.astro"
 import Navigation from "@components/navigation/Navigation.astro"
+
 import "@/styles/base.css"
 
 export interface Props {
@@ -18,22 +17,11 @@ const { title } = Astro.props as Props
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-		<link rel="stylesheet" href="/styles/base.css" />
-
 		<title>{title}</title>
 	</head>
 
 	<body>
 		<Navigation />
-		<nav class="fixed top-0 indent-x-0">
-			<a href="/" class="link">Home</a>
-			<a href="/about" class="link">About</a>
-			<ContactButton client:load>
-				<Contact />
-			</ContactButton>
-		</nav>
-		<div class="pt-16">
-			<slot></slot>
-		</div>
+		<slot></slot>
 	</body>
 </html>

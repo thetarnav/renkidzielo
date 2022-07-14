@@ -1,6 +1,7 @@
 ---
 import Socials from "@islands/ui/socials/Socials"
 import MobileNavOverlay from "@islands/navigation/MobileNavOverlay"
+import MobilePageBanner from "@components/MobilePageBanner.astro"
 
 type RouteUID = "start" | "lamps" | "belt-bags" | "paintings" | "gallery"
 
@@ -36,6 +37,7 @@ const routes: {
 ---
 
 <MobileNavOverlay client:load>
+	<MobilePageBanner title="Renkidzieło" dark />
 	<nav>
 		{routes.map(({ path, name, uid }) => (
 			<a href={path} class={`mobile-nav-item ${uid === currentUID ? "visiting" : ""}`}>

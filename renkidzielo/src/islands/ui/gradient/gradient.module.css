@@ -1,0 +1,21 @@
+.gradient {
+	--shape: var(--gradient-shape, circle);
+	--position: var(--gradient-position, 50%);
+	--start: var(--gradient-start, 0%);
+	--stop: var(--gradient-stop, 100%);
+	--color-from: var(--gradient-color-from, theme(colors.orange.500));
+	--color-to: var(--gradient-color-to, transparent);
+
+	background: radial-gradient(
+		var(--shape) at var(--position),
+		var(--color-from) var(--start),
+		var(--color-to) var(--stop)
+	);
+
+	mask: var(--noise),
+		radial-gradient(
+			var(--shape) at var(--position),
+			#000 var(--start),
+			transparent calc(var(--stop) + 10%)
+		);
+}

@@ -1,0 +1,32 @@
+{
+	"highlights": [
+		{
+			"id": "Sdafnkjhvgcaf",
+			"isAvailable": true,
+			"title": "Lampofon",
+			"description": "Drewniana jasna Lampa z Czerwienią zwoju Miedzi. Lampa na jasnym drewnie zdobiona czerwoną Miedzią. Jest delikatna i wyrazista.",
+			"thumbnail": "https://thetarnav.github.io/Nuxt-Strapi-Study/img/lampofon.webp"
+		},
+		{
+			"id": "dfgshfsdgsFADC",
+			"isAvailable": true,
+			"title": "Płomień Metalu",
+			"description": "Ręcznie malowany Oprawiony w stalową ramę własnego projektu Stal i Płomienie ze złota , miedź, rozgrzany metaliczny ogień. powstał w 2020r",
+			"thumbnail": "https://a.allegroimg.com/original/1ef36d/4be57d3a4b568d6fd149ff9d9b6c"
+		},
+		{
+			"id": "FDSgdshnsbdrvSE",
+			"isAvailable": true,
+			"title": "Piękne Światło",
+			"description": "Pięknym blaskiem i ciekawotkami przedstawia się ta ręcznie wykonana lampa. Pasuje do niemal każdego pomieszczenia.",
+			"thumbnail": "https://a.allegroimg.com/original/1ef2bf/2583edeb4123b55684aef1aa0297"
+		},
+		{
+			"id": "dfhjdhsdrgseAW",
+			"isAvailable": false,
+			"title": "Arcy Mora",
+			"description": "Ręcznie wykonana lampa stojąca abażur utkany z drucików miedzianych, pień w kolorze od czerwieni do fioletu. zapraszam na istagram gdzie więcej zdjęć pięknych lamp",
+			"thumbnail": "https://a.allegroimg.com/original/1e2754/30a3dd39406e8442eb6894789c7b"
+		}
+	]
+}

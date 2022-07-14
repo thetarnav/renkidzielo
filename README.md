@@ -19,3 +19,10 @@ Add these options to your workspace `settings.json` file:
   "tailwindCSS.rootFontSize": 14
 }
 ```
+
+### JSON Server Mock
+
+Until Strapi backend is setup, [JSON Server](https://github.com/typicode/json-server) + [My JSON Server](https://my-json-server.typicode.com) will be used to provide mock data.
+
+Server Endpoint: https://my-json-server.typicode.com/thetarnav/renkidzielo
+

@@ -1,0 +1,58 @@
+---
+import Gradient from "@islands/ui/gradient/Gradient"
+
+export interface Props {
+	title: string
+	subtitle?: string
+	dark?: boolean
+}
+const { dark = false, title, subtitle } = Astro.props as Props
+---
+
+<div class={`banner ${dark ? "dark" : "light"}`}>
+	<div class="project">
+		<!-- <Icon :icon="logo" class="logo" /> -->
+		<div class="project-name mt-1">
+			<h6 class="font-bold leading-small">{title}</h6>
+			{subtitle && <p class="small text-gray-700">{subtitle}</p>}
+		</div>
+	</div>
+	{!dark && <Gradient class="gradient" />}
+	<!-- <LangSwitch />
+  <IconCircle :icon="currentPage" class="page-icon" /> -->
+</div>
+
+<style>
+	.banner {
+		@apply absolute z-10 top-0 inset-x-0;
+		@apply mx-6 h-24;
+		@apply flex justify-between items-center;
+		@apply border-b border-gray-900;
+		@apply md:hidden;
+	}
+
+	.gradient {
+		@apply absolute -z-1 pointer-events-none -inset-6 top-0 h-52 opacity-80;
+
+		--gradient-shape: 110% 120%;
+		--gradient-position: 50% -20%;
+		--gradient-start: 10%;
+		--gradient-stop: 100%;
+		--gradient-color-from: theme(colors.gray.500);
+	}
+
+	.logo {
+		@apply w-14;
+	}
+	.project {
+		@apply flex items-center space-x-3;
+	}
+
+	.page-icon {
+		@apply absolute top-full left-2 mt-4;
+	}
+
+	.dark {
+		@apply text-white border-white;
+	}
+</style>

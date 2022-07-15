@@ -16,13 +16,13 @@ const Socials: Component<{
 			}}
 		>
 			{/* Replace with IconButton */}
-			<Button href={ISTAGRAM_URL} noBackground>
+			<Button href={ISTAGRAM_URL} noBackground slimPadding>
 				IG
 			</Button>
-			<Button href={ETSY_URL} noBackground>
+			<Button href={ETSY_URL} noBackground slimPadding>
 				Etsy
 			</Button>
-			<Button href={ALLEGRO_URL} noBackground>
+			<Button href={ALLEGRO_URL} noBackground slimPadding>
 				Allegro
 			</Button>
 		</div>

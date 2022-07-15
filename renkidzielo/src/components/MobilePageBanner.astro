@@ -12,12 +12,12 @@ const { dark = false, title, subtitle } = Astro.props as Props
 <div class={`banner ${dark ? "dark" : "light"}`}>
 	<div class="project">
 		<!-- <Icon :icon="logo" class="logo" /> -->
-		<div class="project-name">
+		<div class="project-name mt-1">
 			<h6 class="font-bold leading-small">{title}</h6>
 			{subtitle && <p class="small text-gray-700">{subtitle}</p>}
 		</div>
 	</div>
-	<Gradient class="gradient" />
+	{!dark && <Gradient class="gradient" />}
 	<!-- <LangSwitch />
   <IconCircle :icon="currentPage" class="page-icon" /> -->
 </div>

@@ -6,6 +6,7 @@ type ButtonProps = {
 	outline?: boolean
 	dark?: boolean
 	noBackground?: boolean
+	slimPadding?: boolean
 }
 
 const localPropKeys = ["children", "class", "outline", "dark", "noBackground"] as const
@@ -26,6 +27,7 @@ const Button: ParentComponent<
 				[styles["type-outline"]]: props.outline,
 				[styles["type-dark"]]: props.dark,
 				[styles["no-background"]]: props.noBackground,
+				[styles["slim-padding"]]: props.slimPadding,
 			}}
 		>
 			{/* <Icon v-if="leadingIcon" :icon="leadingIcon" /> */}

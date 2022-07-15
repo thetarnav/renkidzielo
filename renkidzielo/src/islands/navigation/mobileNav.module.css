@@ -1,0 +1,41 @@
+.mobile-nav {
+	--margin: theme(spacing.8);
+	--size: theme(spacing.18);
+	--shift: theme(spacing.1);
+
+	--far-pos: calc(100% - (var(--size) + var(--margin)));
+	--far-shift: calc(100% - (var(--size) + var(--margin) - var(--shift)));
+	--close-pos: calc(100% - var(--margin));
+	--close-shift: calc(100% - (var(--margin) + var(--shift)));
+
+	transition: clip-path 0.4s;
+	clip-path: polygon(
+		var(--far-shift) var(--far-pos),
+		var(--close-pos) var(--far-shift),
+		var(--close-shift) var(--close-pos),
+		var(--far-pos) var(--close-shift)
+	);
+
+	@apply fixed z-[2000] inset-0 text-white md:hidden;
+}
+.mobile-nav:global(.open) {
+	clip-path: polygon(0 -5%, 130% 0, 130% 130%, -20% 130%);
+}
+.mobile-nav:before {
+	content: "";
+	@apply absolute -z-1 inset-0;
+	background: radial-gradient(
+		227% 175% at -137% 142%,
+		theme(colors.orange.900) 0%,
+		theme(colors.black) 100%
+	);
+}
+
+.toggle-button {
+	position: absolute;
+	right: var(--margin);
+	bottom: var(--margin);
+	width: var(--size);
+	height: var(--size);
+	transform: rotate(4deg);
+}

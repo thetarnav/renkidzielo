@@ -1,0 +1,31 @@
+.button {
+	@apply h-12;
+	@apply flex justify-center items-center space-x-2 px-6;
+	@apply bg-gray-900 text-white btn-text rounded;
+
+	&.type-outline {
+		@apply bg-transparent border border-gray-900 text-gray-900;
+		&.type-dark {
+			@apply border-white text-white;
+		}
+	}
+
+	&.type-dark {
+		@apply bg-white text-gray-900;
+	}
+
+	&.no-background {
+		@apply bg-transparent;
+	}
+
+	&.primary {
+		@apply bg-primary btn-primary-text space-x-4 px-6 h-16 shadow-primary;
+	}
+
+	&.circle {
+		@apply rounded-full h-12 w-12 p-0;
+		svg {
+			@apply w-7 h-7 text-white;
+		}
+	}
+}

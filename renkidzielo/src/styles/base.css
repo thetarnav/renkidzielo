@@ -1,0 +1,106 @@
+/* Tailwind normalize/preflight styles */
+@tailwind base;
+
+html {
+	font-size: 14px;
+	width: 100%;
+}
+body,
+html {
+	/* important for navigation and swiping: */
+	height: 100%;
+	overscroll-behavior: none;
+}
+body {
+	@apply bg-white;
+	@apply overflow-y-scroll overflow-x-hidden;
+
+	font-feature-settings: "ordn" on, "cpsp" on;
+}
+body::-webkit-scrollbar-track {
+	@apply md:bg-white;
+}
+
+@media screen and (min-width: 1024px) {
+	::-webkit-scrollbar {
+		@apply w-3;
+	}
+	::-webkit-scrollbar-track {
+		@apply bg-transparent;
+	}
+	::-webkit-scrollbar-thumb {
+		@apply bg-gray-800 rounded;
+		border: 2px solid transparent;
+		background-clip: content-box;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		@apply bg-black;
+	}
+}
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+*::selection {
+	@apply bg-primary/80 text-white;
+}
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	@apply text-gray-900;
+}
+a {
+	@apply text-primary cursor-pointer;
+}
+button:focus {
+	@apply outline-none;
+}
+
+path {
+	stroke-width: 1.9px;
+}
+svg {
+	@apply w-6 h-auto;
+}
+svg.thin path {
+	stroke-width: 1px;
+}
+
+b,
+strong {
+	@apply font-semibold;
+}
+
+h1 {
+	@apply heading-1;
+}
+h2 {
+	@apply heading-2;
+}
+h3 {
+	@apply heading-3;
+}
+h4 {
+	@apply heading-4;
+}
+h5 {
+	@apply heading-5;
+}
+h6 {
+	@apply heading-6;
+	overflow-wrap: break-word;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Tailwind applied utilities */
+@tailwind components;
+@tailwind utilities;

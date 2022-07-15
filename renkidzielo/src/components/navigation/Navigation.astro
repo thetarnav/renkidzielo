@@ -1,0 +1,74 @@
+---
+import Socials from "@islands/ui/socials/Socials"
+import MobileNavOverlay from "@islands/navigation/MobileNavOverlay"
+
+type RouteUID = "start" | "lamps" | "belt-bags" | "paintings" | "gallery"
+
+const currentPath = Astro.canonicalURL.pathname
+const currentUID = (currentPath.split("/")[1] || "start") as RouteUID
+
+const routes: {
+	path: string
+	name: string
+	uid: RouteUID
+}[] = [
+	{
+		path: "/",
+		name: "Start",
+		uid: "start",
+	},
+	{
+		path: "/lamps",
+		name: "Lampy",
+		uid: "lamps",
+	},
+	{
+		path: "/belt-bags",
+		name: "Nerki",
+		uid: "belt-bags",
+	},
+	{
+		path: "/paintings",
+		name: "Obrazy",
+		uid: "paintings",
+	},
+]
+---
+
+<MobileNavOverlay client:load>
+	<nav>
+		{routes.map(({ path, name, uid }) => (
+			<a href={path} class={`mobile-nav-item ${uid === currentUID ? "visiting" : ""}`}>
+				<h2>{name}</h2>
+				{/* TODO: replace with Icon component */}
+				<p>~i~</p>
+			</a>
+		))}
+		<Socials class="absolute bottom-6 left-6" dark />
+	</nav>
+</MobileNavOverlay>
+
+<style>
+	nav {
+		@apply absolute inset-0 px-6 py-24
+    flex flex-col justify-center items-stretch space-y-[0.2vh];
+		@apply sm:flex-row sm:flex-wrap sm:items-center sm:justify-end sm:space-y-[0.1vh] sm:pt-6;
+	}
+
+	.mobile-nav-item {
+		@apply pl-4 pt-4 pb-2 pr-12 border border-transparent rounded
+			flex space-x-6 justify-end
+	 		heading-2
+			sm:w-1/2;
+	}
+	.mobile-nav-item.visiting {
+		@apply border-white opacity-30;
+	}
+
+	.icon {
+		@apply w-10 h-10;
+	}
+	.icon :global(path, rect) {
+		stroke-width: 2.8px;
+	}
+</style>

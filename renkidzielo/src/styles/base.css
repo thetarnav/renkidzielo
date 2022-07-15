@@ -9,7 +9,6 @@ body,
 html {
 	/* important for navigation and swiping: */
 	height: 100%;
-	overscroll-behavior: none;
 }
 body {
 	@apply bg-white;
@@ -29,9 +28,7 @@ body::-webkit-scrollbar-track {
 		@apply bg-transparent;
 	}
 	::-webkit-scrollbar-thumb {
-		@apply bg-gray-800 rounded;
-		border: 2px solid transparent;
-		background-clip: content-box;
+		@apply bg-gray-800 rounded border-[2px] border-transparent bg-clip-content;
 	}
 	::-webkit-scrollbar-thumb:hover {
 		@apply bg-black;
@@ -43,13 +40,6 @@ body::-webkit-scrollbar-track {
 }
 *::selection {
 	@apply bg-primary/80 text-white;
-}
-*,
-*::before,
-*::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
 }
 
 :root {
@@ -93,8 +83,7 @@ h5 {
 	@apply heading-5;
 }
 h6 {
-	@apply heading-6;
-	overflow-wrap: break-word;
+	@apply heading-6 break-words;
 }
 a {
 	text-decoration: none;

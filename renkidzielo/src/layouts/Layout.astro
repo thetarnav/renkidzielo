@@ -1,5 +1,6 @@
 ---
 import Navigation from "@components/navigation/Navigation.astro"
+import { BASE_URL } from "@/utils/variables"
 
 import "@/styles/variables.css"
 import "@/styles/base.css"
@@ -12,12 +13,41 @@ const { title } = Astro.props as Props
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl-PL">
 	<head>
+		<!-- META -->
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+		<meta name="og:title" content={title} />
+		<meta name="og:image" content={`${BASE_URL}/img/bags-group.jpg`} />
+		<meta
+			name="og:description"
+			content="Projekt Renkidzieło. Artystyczne i wysokiej jakości rękodzieła. Idealne do wystroju wnętrz i zawsze sprawdzą się jako prezent. Znajdź coś dla siebie!"
+		/>
+		<meta
+			name="description"
+			content="Projekt Renkidzieło: Artystyczne i własnoręcznie tworzone rękodzieła. Między innymi oryginalne lampy i barwne obrazy idealne do udekorowania wnętrza; ale również i użyteczne wytwory krawieckie. Takie jak nerki, saszetki na pas i torby."
+		/>
+		<meta
+			name="keywords"
+			content="Rękodzieło, Renkidzieło, renkidzielo, crafts, handcrafts, art, paintings, belt-bags, lamps, interial furniture, Thea Simulakra, gallery, shop, craftmanship, handicraft, eco"
+		/>
+		<meta name="author" content="Damian Tarnawski <gthetarnav@gmail.com>" />
 
+		<!-- LINKS -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" type="image/png" href="/site.webmanifest" />
+		<link rel="preconnect" href="https=/fonts.gstatic.com" />
+		<!-- <link rel="preconnect" href=process.env.STRAPI_URL /> -->
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600..800&family=Inter:wght@400..700&display=swap"
+		/>
+		<!-- Bluu Next Webfont: -->
+		<link rel="stylesheet" href="/webfonts/stylesheet.css" type="text/css" charset="utf-8" />
 		<title>{title}</title>
 	</head>
 

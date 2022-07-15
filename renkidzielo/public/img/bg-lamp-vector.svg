@@ -1,0 +1,17 @@
+<svg width="201" height="199" viewBox="0 0 201 199" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <g filter="url(#vector-lamp-blur)">
+      <ellipse cx="100.796" cy="102.494" rx="75.292" ry="75.5345" fill="url(#vector-lamp-gradient)"/>
+   </g>
+   <path d="M163.042 149.095C166.902 158.18 79.0582 189.612 72.4408 174.038M176.386 124.985C181.073 136.017 61.8611 183.163 53.0379 162.398M178.418 95.7439C184.208 109.371 42.1857 160.138 32.8111 138.075M169.598 64.2419C176.491 80.4647 32.078 129.186 24.3578 111.017M146.244 39.7222C152.31 53.9982 35.0316 94.95 28.6899 80.0251M114.701 26.3726C119.389 37.4041 46.2617 64.0756 41.8501 53.6931C39.6443 48.5018 65.0337 33.0432 72.1166 30.0143" stroke="#FBD8B7"/>
+   <defs>
+      <filter id="vector-lamp-blur" x="24.5039" y="25.9594" width="152.584" height="153.069" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+         <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+         <feGaussianBlur stdDeviation="0.5" result="effect1_foregroundBlur"/>
+      </filter>
+      <radialGradient id="vector-lamp-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(216.024 102.623) rotate(180) scale(190.52 132.899)">
+         <stop offset="0.178457" stop-color="#E7E6E3"/>
+         <stop offset="0.938873" stop-color="#FFFDFA"/>
+      </radialGradient>
+   </defs>
+</svg>

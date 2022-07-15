@@ -1,0 +1,82 @@
+---
+import Button from "@/islands/ui/button/Button"
+import { MAIN_SHOP_URL } from "@/utils/variables"
+
+export interface Props {
+	title: string
+	cta: string
+}
+
+const { title, cta } = Astro.props as Props
+---
+
+<header>
+	<h1>{title}</h1>
+	<div class="cta">
+		<p class="cta-copy">{cta}</p>
+		<div class="cta-buttons">
+			<!-- <Button
+				v-if="page === 'index'"
+				:to="{ name: 'gallery', query: { filter: 'available' } }"
+				trailing-icon="bag"
+				class="primary mobile"
+				>{{ $t('common.cta-btn') }}</Button
+			> -->
+			<Button href="/gallery" class="primary mobile">Galeria Produktów</Button>
+			<!-- <IconFrame icon="arrow-left" class="cta-pointer" /> -->
+			<Button href={MAIN_SHOP_URL} class="primary">Dostępne Produkty</Button>
+			<!-- <Button
+				class="gallery-btn outline"
+				trailing-icon="gallery"
+				to="/gallery"
+				>{{ $tc('pages.gallery.name') }}</Button
+			> -->
+		</div>
+	</div>
+</header>
+
+<style>
+	header {
+		@apply w-screen md:w-10-cols lg:w-7-cols;
+		@apply px-6 md:px-0;
+		@apply md:ml-col-6 lg:ml-col-8;
+	}
+	h1 {
+		@apply heading-2 md:heading-1 text-black effect-3d;
+		@apply mx-2 md:mx-0;
+	}
+
+	.cta {
+		@apply px-4 md:px-0;
+		@apply pt-8 mt-12 md:mt-10;
+		@apply border-t border-gray-900;
+
+		.cta-copy {
+			@apply ml-2 md:ml-0;
+		}
+
+		.cta-buttons {
+			@apply mt-6 h-16 flex items-stretch;
+			> * {
+				@apply h-full;
+			}
+
+			.cta-pointer {
+				@apply w-20 ml-4 md:hidden;
+			}
+			.primary {
+				@apply transform -rotate-2 md:mr-4 flex-shrink-0;
+
+				&.mobile {
+					@apply md:hidden rotate-2;
+				}
+				&:not(.mobile) {
+					@apply hidden md:flex;
+				}
+			}
+			.gallery-btn {
+				@apply hidden md:flex;
+			}
+		}
+	}
+</style>

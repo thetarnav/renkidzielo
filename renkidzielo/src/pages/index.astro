@@ -1,9 +1,8 @@
 ---
 import Layout from "@/layouts/Layout.astro"
-import Card from "@components/Card.astro"
-import MobilePageBanner from "@components/MobilePageBanner.astro"
 
-import Counter from "@islands/Counter"
+import Hero from "@components/landing/Hero.astro"
+import MobilePageBanner from "@components/MobilePageBanner.astro"
 ---
 
 <Layout
@@ -11,39 +10,63 @@ import Counter from "@islands/Counter"
 	description="Renkidzieło to artystyczne i własnoręcznie tworzone rękodzieła. Między innymi oryginalne lampy i barwne obrazy idealne do udekorowania wnętrza; ale również i użyteczne wytwory krawieckie. Takie jak nerki, saszetki na pas i torby."
 >
 	<MobilePageBanner title="Renkidzieło" subtitle="Projekt ekologiczny" />
-	<main class="pt-48">
-		<h1 class="text-primary md:text-black">Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			Check out the <code>src/pages</code> directory to get started.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Chat"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-		<br />
-		<p>Solid Counter Island</p>
-		<Counter client:load />
-		<script src="../scripts/helloClient">
 
-		</script>
-	</main>
+	<div class="wrapper start-wrapper">
+		<div v-rellax="{ speed: -5 }" class="gradient rellax"></div>
+		<figure v-rellax="{ speed: -3 }" class="gear-graphic rellax">
+			<img src="/img/THE GEAR.png" width="818" height="885" />
+		</figure>
+		<figure class="collage-graphic">
+			<img src="/img/lamps collage.png" width="900" height="900" />
+		</figure>
+		<!-- <div v-rellax="{ speed: -1 }" class="project-info rellax">
+			<div class="flex items-center">
+				<Icon icon="logo-mono" class="w-14 mr-2" />
+				<h6 class="font-bold">{{ $t('common.name') }}</h6>
+			</div>
+			<p class="small mt-2">
+				{{ $t('index.start.project-info') }}
+			</p>
+		</div> -->
+		<!-- CONTENT: -->
+		<Hero
+			title="Efektowne i artystyczne rękodzieła."
+			cta={`Przeglądnij galerię produktów,\n na pewno znajdziesz coś dla siebie!`}
+		/>
+		<!-- <TopAboveFoldFooter /> -->
+	</div>
+
+	<style>
+		.wrapper {
+			@apply relative overflow-hidden pt-64 sm:pt-40 md:pt-72 lg:pt-0;
+		}
+		.gradient {
+			@apply absolute -z-1 w-screen h-[250vw] top-0 left-0;
+			@include dithered-gradient(110% 65%, 120% 40%);
+
+			@media screen and (min-width: 1000px) {
+				@apply h-[250vh];
+				@include dithered-gradient(95% 60%, 120% 40%);
+			}
+		}
+		.gear-graphic {
+			@apply absolute -z-1 -right-16 top-[6.75vh];
+			@apply w-[338.42px] h-[365.33px];
+			@apply md:w-[494px] md:h-[533px] md:right-auto md:left-col-6 lg:left-col-8 md:ml-72 md:top-[10vh];
+		}
+		.collage-graphic {
+			@apply hidden lg:block;
+			@apply absolute -z-1 h-[90vmin] w-[90vmin] right-[83vw] top-[18vh];
+			img {
+				transform: matrix(-1, 0.05, 0.05, 1, 0, 0);
+			}
+			@include radial-mask(circle, left, 45%, 95%);
+		}
+
+		.project-info {
+			@apply hidden lg:block;
+			@apply mt-[17.75vh] ml-col-7 w-80 p-6 md:mb-[6vh];
+			@apply bg-gray-50 text-gray-800 rounded-lg;
+		}
+	</style>
 </Layout>

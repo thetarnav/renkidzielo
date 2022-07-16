@@ -3,10 +3,6 @@
 	@apply flex justify-center items-center space-x-2 px-6;
 	@apply bg-gray-900 text-white btn-text rounded;
 
-	span {
-		@apply mt-0.5;
-	}
-
 	&.type-outline {
 		@apply bg-transparent border border-gray-900 text-gray-900;
 		&.type-dark {

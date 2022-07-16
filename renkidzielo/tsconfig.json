@@ -1,7 +1,7 @@
 {
 	"extends": "../tsconfig.json",
 	"compilerOptions": {
-		"types": ["astro/client","unplugin-icons/types/solid"],
+		"types": ["astro/client", "unplugin-icons/types/solid"],
 		"baseUrl": ".",
 		"paths": {
 			"@components/*": ["src/components/*"],

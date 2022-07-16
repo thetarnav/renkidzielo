@@ -2,18 +2,28 @@ import { ParentComponent, Show, JSX, splitProps } from "solid-js"
 import { Dynamic } from "solid-js/web"
 import styles from "./Button.module.css"
 
-type ButtonProps = {
+export type ButtonLocalProps = {
 	outline?: boolean
 	dark?: boolean
 	noBackground?: boolean
 	slimPadding?: boolean
+	square?: boolean
 }
 
-const localPropKeys = ["children", "class", "outline", "dark", "noBackground"] as const
+export type ButtonProps = ButtonLocalProps &
+	(({ href: string } & JSX.IntrinsicElements["a"]) | JSX.IntrinsicElements["button"])
 
-const Button: ParentComponent<
-	(({ href: string } & JSX.IntrinsicElements["a"]) | JSX.IntrinsicElements["button"]) & ButtonProps
-> = props => {
+const localPropKeys = [
+	"children",
+	"class",
+	"outline",
+	"dark",
+	"noBackground",
+	"square",
+	"slimPadding",
+] as const
+
+const Button: ParentComponent<ButtonProps> = props => {
 	const [, attrs] = splitProps(props, localPropKeys)
 	const isAnchor = "href" in attrs
 
@@ -28,6 +38,7 @@ const Button: ParentComponent<
 				[styles["type-dark"]]: props.dark,
 				[styles["no-background"]]: props.noBackground,
 				[styles["slim-padding"]]: props.slimPadding,
+				[styles["square"]]: props.square,
 			}}
 		>
 			{/* <Icon v-if="leadingIcon" :icon="leadingIcon" /> */}

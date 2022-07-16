@@ -26,6 +26,10 @@
 		@apply bg-primary btn-primary-text space-x-4 px-6 h-16 shadow-primary;
 	}
 
+	&.square {
+		@apply w-12;
+	}
+
 	&.circle {
 		@apply rounded-full h-12 w-12 p-0;
 		svg {

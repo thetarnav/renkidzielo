@@ -1,6 +1,8 @@
 import { Component } from "solid-js"
 import Button from "@/islands/ui/button/Button"
+import IconButton from "@/islands/ui/button/IconButton"
 import { ETSY_URL, ALLEGRO_URL, ISTAGRAM_URL } from "@/utils/variables"
+import InstagramIcon from "~icons/assets/instagram"
 
 import styles from "./Socials.module.css"
 
@@ -16,9 +18,9 @@ const Socials: Component<{
 			}}
 		>
 			{/* Replace with IconButton */}
-			<Button href={ISTAGRAM_URL} noBackground slimPadding>
+			<IconButton icon={InstagramIcon} href={ISTAGRAM_URL} noBackground slimPadding>
 				IG
-			</Button>
+			</IconButton>
 			<Button href={ETSY_URL} noBackground slimPadding>
 				Etsy
 			</Button>

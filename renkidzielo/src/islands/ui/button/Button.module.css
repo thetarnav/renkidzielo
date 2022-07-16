@@ -1,5 +1,7 @@
 .button {
-	@apply h-12;
+	--size: theme(spacing.12);
+
+	@apply h-[var(--size)];
 	@apply flex justify-center items-center space-x-2 px-6;
 	@apply bg-gray-900 text-white btn-text rounded;
 
@@ -23,15 +25,16 @@
 	}
 
 	&.primary {
-		@apply bg-primary btn-primary-text space-x-4 px-6 h-16 shadow-primary;
+		--size: theme(spacing.16);
+		@apply bg-primary btn-primary-text space-x-4 px-6 shadow-PRIMARY;
 	}
 
 	&.square {
-		@apply w-12;
+		@apply w-[var(--size)];
 	}
 
 	&.circle {
-		@apply rounded-full h-12 w-12 p-0;
+		@apply rounded-full h-[var(--size)] w-[var(--size)] p-0;
 		svg {
 			@apply w-7 h-7 text-white;
 		}

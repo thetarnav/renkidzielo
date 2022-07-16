@@ -8,6 +8,7 @@ export type ButtonLocalProps = {
 	noBackground?: boolean
 	slimPadding?: boolean
 	square?: boolean
+	primary?: boolean
 }
 
 export type ButtonProps = ButtonLocalProps &
@@ -21,6 +22,7 @@ const localPropKeys = [
 	"noBackground",
 	"square",
 	"slimPadding",
+	"primary",
 ] as const
 
 const Button: ParentComponent<ButtonProps> = props => {
@@ -32,13 +34,14 @@ const Button: ParentComponent<ButtonProps> = props => {
 			component={isAnchor ? "a" : "button"}
 			{...attrs}
 			{...(isAnchor && { target: "_blank" })}
-			class={styles.button}
+			class={`${styles.button} ${props.class ?? ""}`}
 			classList={{
 				[styles["type-outline"]]: props.outline,
 				[styles["type-dark"]]: props.dark,
 				[styles["no-background"]]: props.noBackground,
 				[styles["slim-padding"]]: props.slimPadding,
 				[styles["square"]]: props.square,
+				[styles["primary"]]: props.primary,
 			}}
 		>
 			{/* <Icon v-if="leadingIcon" :icon="leadingIcon" /> */}

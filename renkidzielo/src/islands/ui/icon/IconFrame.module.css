@@ -1,0 +1,23 @@
+.figure {
+	@apply flex;
+	@apply border border-gray-900 text-gray-900 rounded;
+
+	/* &.circle {
+		@apply rounded-full;
+	}
+	&.small-icon .icon {
+		@apply w-6;
+	}
+	&.slim .icon {
+		path,
+		rect,
+		circle,
+		rectangle {
+			stroke-width: 1px;
+		}
+	} */
+
+	& :global(> *) {
+		@apply m-auto w-8;
+	}
+}

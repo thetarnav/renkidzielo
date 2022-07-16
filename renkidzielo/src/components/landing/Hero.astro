@@ -1,6 +1,9 @@
 ---
 import Button from "@/islands/ui/button/Button"
+import IconFrame from "@/islands/ui/icon/IconFrame"
 import { MAIN_SHOP_URL } from "@/utils/variables"
+
+import ArrowIcon from "~icons/assets/arrow-left"
 
 export interface Props {
 	title: string
@@ -22,9 +25,9 @@ const { title, cta } = Astro.props as Props
 				class="primary mobile"
 				>{{ $t('common.cta-btn') }}</Button
 			> -->
-			<Button href="/gallery" class="primary mobile">Galeria Produktów</Button>
-			<!-- <IconFrame icon="arrow-left" class="cta-pointer" /> -->
-			<Button href={MAIN_SHOP_URL} class="primary">Dostępne Produkty</Button>
+			<!-- <Button href="/gallery" class="primary mobile">Galeria Produktów</Button> -->
+			<Button href={MAIN_SHOP_URL} primary class="primary">Dostępne Produkty</Button>
+			<IconFrame icon={ArrowIcon} class="cta-pointer" />
 			<!-- <Button
 				class="gallery-btn outline"
 				trailing-icon="gallery"
@@ -48,18 +51,15 @@ const { title, cta } = Astro.props as Props
 
 	.cta {
 		@apply px-4 md:px-0;
-		@apply pt-8 mt-12 md:mt-10;
+		@apply pt-8 pb-16 ml-2 mt-12 md:mt-10;
 		@apply border-t border-gray-900;
 
 		.cta-copy {
-			@apply ml-2 md:ml-0;
+			@apply body md:ml-0;
 		}
 
 		.cta-buttons {
 			@apply mt-6 h-16 flex items-stretch;
-			> * {
-				@apply h-full;
-			}
 
 			.cta-pointer {
 				@apply w-20 ml-4 md:hidden;
@@ -67,12 +67,12 @@ const { title, cta } = Astro.props as Props
 			.primary {
 				@apply transform -rotate-2 md:mr-4 flex-shrink-0;
 
-				&.mobile {
+				/* &.mobile {
 					@apply md:hidden rotate-2;
 				}
 				&:not(.mobile) {
 					@apply hidden md:flex;
-				}
+				} */
 			}
 			.gallery-btn {
 				@apply hidden md:flex;

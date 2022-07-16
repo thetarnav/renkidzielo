@@ -76,6 +76,12 @@ module.exports = {
 			0: "0",
 			3: "3px",
 		},
+		boxShadow: {
+			around: "0 0 35px 0 rgba(43, 42, 43, 0.2)",
+			wide: "14px 21px 35px rgba(43, 42, 43, 0.12)",
+			cherry: "12px 12px 30px -5px rgba(173, 61, 102, 0.16)",
+			PRIMARY: "14px 14px 28px rgba(95, 75, 255, 0.14)",
+		},
 		extend: {
 			zIndex: {
 				"-1": "-1",
@@ -199,12 +205,6 @@ module.exports = {
 			},
 			height: {
 				max: "max-content",
-			},
-			boxShadow: {
-				around: "0 0 35px 0 rgba(43, 42, 43, 0.2)",
-				wide: "14px 21px 35px rgba(43, 42, 43, 0.12)",
-				cherry: "12px 12px 30px -5px rgba(173, 61, 102, 0.16)",
-				primary: "14px 14px 28px rgba(95, 75, 255, 0.14)",
 			},
 			transitionProperty: {
 				"clip-path": "clip-path",

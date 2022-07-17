@@ -1,7 +1,7 @@
 .button {
-	--size: theme(spacing.12);
+	--i-size: var(--button-size, theme(spacing.12));
 
-	@apply h-[var(--size)];
+	@apply h-[var(--i-size)];
 	@apply flex justify-center items-center space-x-2 px-6;
 	@apply bg-gray-900 text-white btn-text rounded;
 
@@ -25,18 +25,19 @@
 	}
 
 	&.primary {
-		--size: theme(spacing.16);
+		--i-size: theme(spacing.16);
 		@apply bg-primary btn-primary-text space-x-4 px-6 shadow-PRIMARY;
 	}
 
 	&.square {
-		@apply w-[var(--size)];
+		@apply w-[var(--i-size)];
 	}
 
 	&.circle {
-		@apply rounded-full h-[var(--size)] w-[var(--size)] p-0;
+		@apply rounded-full h-[var(--i-size)] w-[var(--i-size)] p-0;
 		svg {
-			@apply w-7 h-7 text-white;
+			@apply text-white;
+			--icon-width: theme(spacing.7);
 		}
 	}
 }

@@ -56,7 +56,8 @@ path {
 	stroke-width: 1.9px;
 }
 svg {
-	@apply w-6 h-auto;
+	@apply h-auto;
+	width: var(--icon-width, theme(spacing.6));
 }
 svg.thin path {
 	stroke-width: 1px;

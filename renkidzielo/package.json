@@ -15,10 +15,10 @@
 		"solid-js": "^1.4.7"
 	},
 	"devDependencies": {
-		"@astrojs/solid-js": "^0.3.1",
+		"@astrojs/solid-js": "^0.4.0",
 		"@astrojs/tailwind": "^0.2.4",
 		"@tailwindcss/aspect-ratio": "^0.4.0",
-		"astro": "^1.0.0-beta.69",
+		"astro": "^1.0.0-beta.72",
 		"autoprefixer": "^10.4.7",
 		"tailwindcss": "^3.1.6",
 		"unplugin-icons": "^0.14.7"

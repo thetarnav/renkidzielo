@@ -17,8 +17,7 @@ const Socials: Component<{
 				[styles["dark"]]: props.dark,
 			}}
 		>
-			{/* Replace with IconButton */}
-			<IconButton icon={InstagramIcon} href={ISTAGRAM_URL} noBackground slimPadding>
+			<IconButton icon={InstagramIcon} href={ISTAGRAM_URL} noBackground>
 				IG
 			</IconButton>
 			<Button href={ETSY_URL} noBackground slimPadding>

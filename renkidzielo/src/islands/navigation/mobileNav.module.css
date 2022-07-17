@@ -33,9 +33,10 @@
 
 .toggle-button {
 	position: absolute;
+	z-index: 2000;
 	right: var(--margin);
 	bottom: var(--margin);
-	width: var(--size);
-	height: var(--size);
+	--button-size: var(--size);
+	--icon-width: theme(spacing.8);
 	transform: rotate(4deg);
 }

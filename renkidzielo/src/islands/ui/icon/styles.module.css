@@ -1,3 +1,8 @@
+/* .icon-component {
+	--i-size: var(--icon-size, theme(spacing.6));
+	@apply w-[var(--i-size)];
+} */
+
 .figure {
 	@apply flex;
 	@apply border border-gray-900 text-gray-900 rounded;

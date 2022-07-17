@@ -1,6 +1,6 @@
 import { Component } from "solid-js"
 import { Dynamic } from "solid-js/web"
-import styles from "./IconFrame.module.css"
+import styles from "./styles.module.css"
 
 const IconFrame: Component<{
 	icon: Component

@@ -4,15 +4,14 @@
 } */
 
 .figure {
-	@apply flex;
+	@apply flex justify-center items-center;
 	@apply border border-gray-900 text-gray-900 rounded;
 
-	/* &.circle {
+	&.circle {
 		@apply rounded-full;
 	}
-	&.small-icon .icon {
-		@apply w-6;
-	}
+
+	/*
 	&.slim .icon {
 		path,
 		rect,
@@ -21,8 +20,9 @@
 			stroke-width: 1px;
 		}
 	} */
+}
 
-	& :global(> *) {
-		@apply m-auto w-8;
-	}
+.icon-ring {
+	@apply w-8 h-8;
+	--icon-size: theme(spacing.6);
 }

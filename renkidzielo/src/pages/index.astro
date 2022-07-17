@@ -3,13 +3,15 @@ import Layout from "@/layouts/Layout.astro"
 
 import Hero from "@components/landing/Hero.astro"
 import MobilePageBanner from "@components/MobilePageBanner.astro"
+
+import HomeIcon from "~icons/assets/home"
 ---
 
 <Layout
 	title="Projekt Renkidzieło: Artystyczne i oryginalne rękodzieła"
 	description="Renkidzieło to artystyczne i własnoręcznie tworzone rękodzieła. Między innymi oryginalne lampy i barwne obrazy idealne do udekorowania wnętrza; ale również i użyteczne wytwory krawieckie. Takie jak nerki, saszetki na pas i torby."
 >
-	<MobilePageBanner title="Renkidzieło" subtitle="Projekt ekologiczny" />
+	<MobilePageBanner title="Renkidzieło" subtitle="Projekt ekologiczny" icon={HomeIcon} />
 
 	<div class="wrapper start-wrapper">
 		<div v-rellax="{ speed: -5 }" class="gradient rellax"></div>

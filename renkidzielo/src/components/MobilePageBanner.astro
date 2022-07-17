@@ -1,5 +1,9 @@
 ---
+import { Component } from "solid-js"
+
 import Gradient from "@islands/ui/gradient/Gradient"
+import IconRing from "@islands/ui/icon/IconRing"
+
 import LogoIcon from "~icons/assets/logo"
 import MonoLogoIcon from "~icons/assets/logo-mono"
 
@@ -7,8 +11,9 @@ export interface Props {
 	title: string
 	subtitle?: string
 	dark?: boolean
+	icon?: Component
 }
-const { dark = false, title, subtitle } = Astro.props as Props
+const { dark = false, title, subtitle, icon } = Astro.props as Props
 
 const Logo = dark ? MonoLogoIcon : LogoIcon
 ---
@@ -22,8 +27,8 @@ const Logo = dark ? MonoLogoIcon : LogoIcon
 		</div>
 	</div>
 	{!dark && <Gradient class="gradient" />}
-	<!-- <LangSwitch />
-  <IconCircle :icon="currentPage" class="page-icon" /> -->
+	{icon && <IconRing class="page-icon" icon={icon} />}
+	<!-- <LangSwitch /> -->
 </div>
 
 <style>

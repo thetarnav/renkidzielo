@@ -3,7 +3,8 @@
 		"astro-build.astro-vscode",
 		"bradlc.vscode-tailwindcss",
 		"esbenp.prettier-vscode",
-		"clinyong.vscode-css-modules"
+		"clinyong.vscode-css-modules",
+		"csstools.postcss"
 	],
 	"unwantedRecommendations": []
 }

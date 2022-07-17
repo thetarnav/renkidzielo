@@ -9,6 +9,7 @@ export type ButtonLocalProps = {
 	slimPadding?: boolean
 	square?: boolean
 	primary?: boolean
+	rounded?: boolean
 }
 
 export type ButtonProps = ButtonLocalProps &
@@ -23,6 +24,7 @@ const localPropKeys = [
 	"square",
 	"slimPadding",
 	"primary",
+	"rounded",
 ] as const
 
 const Button: ParentComponent<ButtonProps> = props => {
@@ -42,6 +44,7 @@ const Button: ParentComponent<ButtonProps> = props => {
 				[styles["slim-padding"]]: props.slimPadding,
 				[styles["square"]]: props.square,
 				[styles["primary"]]: props.primary,
+				[styles["edge-rounded"]]: props.rounded,
 			}}
 		>
 			{/* <Icon v-if="leadingIcon" :icon="leadingIcon" /> */}

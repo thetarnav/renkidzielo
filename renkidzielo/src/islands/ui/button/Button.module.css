@@ -3,7 +3,7 @@
 
 	@apply h-[var(--i-size)];
 	@apply flex justify-center items-center space-x-2 px-6;
-	@apply bg-gray-900 text-white btn-text rounded;
+	@apply bg-gray-900 text-white btn-text;
 
 	&.type-outline {
 		@apply bg-transparent border border-gray-900 text-gray-900;
@@ -22,6 +22,10 @@
 
 	&.slim-padding {
 		@apply px-4;
+	}
+
+	&.edge-rounded {
+		@apply rounded;
 	}
 
 	&.primary {

@@ -4,6 +4,8 @@ import Layout from "@/layouts/Layout.astro"
 import Hero from "@components/landing/Hero.astro"
 import MobilePageBanner from "@components/MobilePageBanner.astro"
 
+import Gradient from "@islands/ui/gradient/Gradient"
+
 import HomeIcon from "~icons/assets/home"
 ---
 
@@ -14,7 +16,8 @@ import HomeIcon from "~icons/assets/home"
 	<MobilePageBanner title="Renkidzieło" subtitle="Projekt ekologiczny" icon={HomeIcon} />
 
 	<div class="start-wrapper">
-		<div v-rellax="{ speed: -5 }" class="gradient rellax"></div>
+		<!-- <div v-rellax="{ speed: -5 }" class="gradient rellax"></div> -->
+		<Gradient class="gradient" />
 		<figure v-rellax="{ speed: -3 }" class="gear-graphic rellax">
 			<img src="/img/THE GEAR.png" width="818" height="885" />
 		</figure>
@@ -43,11 +46,12 @@ import HomeIcon from "~icons/assets/home"
 		}
 		.gradient {
 			@apply absolute -z-1 w-screen h-[250vw] top-0 left-0;
-			@include dithered-gradient(110% 65%, 120% 40%);
+			--gradient-shape: 110% 65%;
+			--gradient-position: 120% 40%;
 
 			@media screen and (min-width: 1000px) {
 				@apply h-[250vh];
-				@include dithered-gradient(95% 60%, 120% 40%);
+				--gradient-shape: 95% 60%;
 			}
 		}
 		.gear-graphic {

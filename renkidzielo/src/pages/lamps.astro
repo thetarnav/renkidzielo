@@ -1,7 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro"
+
 import Hero from "@components/landing/Hero.astro"
 import MobilePageBanner from "@components/MobilePageBanner.astro"
+
+import Gradient from "@islands/ui/gradient/Gradient"
 
 import LampIcon from "~icons/assets/lamp"
 ---
@@ -10,7 +13,9 @@ import LampIcon from "~icons/assets/lamp"
 	<MobilePageBanner title="/Lampy" icon={LampIcon} />
 
 	<div class="start-wrapper">
-		<div v-rellax="{ speed: 3 }" class="bg-element rellax"></div>
+		<div v-rellax="{ speed: 3 }" class="bg-element rellax">
+			<Gradient class="gradient" />
+		</div>
 		<figure v-rellax="{ speed: $screen.lg ? -3 : 1 }" class="collage-graphic rellax">
 			<img src="/img/lamps collage.png" width="900" height="900" />
 		</figure>
@@ -25,11 +30,17 @@ import LampIcon from "~icons/assets/lamp"
 
 	<style>
 		.start-wrapper {
-			@apply pt-48 sm:pt-36 md:pt-72;
+			@apply pt-56 sm:pt-36 md:pt-72;
 
 			.bg-element {
 				@apply fixed -z-1 -top-24 inset-x-0 h-[180vh];
-				@include dithered-gradient(circle, 67% 20%, 5%, 85%);
+
+				.gradient {
+					@apply absolute inset-0;
+					--gradient-position: 67% 20%;
+					--gradient-start: 5%;
+					--gradient-stop: 85%;
+				}
 
 				&:after {
 					content: "";

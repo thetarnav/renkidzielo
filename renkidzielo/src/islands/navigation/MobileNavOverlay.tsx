@@ -9,13 +9,15 @@ const MobileNavOverlay: ParentComponent = props => {
 	const toggle = () => setIsOpen(p => !p)
 
 	return (
-		<div class={styles["mobile-nav"]} classList={{ open: isOpen() }}>
+		<div class={styles.wrapper}>
 			<IconButton
 				icon={isOpen() ? CloseIcon : MenuIcon}
 				class={styles["toggle-button"]}
 				onClick={toggle}
 			/>
-			{props.children}
+			<div class={styles["mobile-nav"]} classList={{ open: isOpen() }}>
+				{props.children}
+			</div>
 		</div>
 	)
 }

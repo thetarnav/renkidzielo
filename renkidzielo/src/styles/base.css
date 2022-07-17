@@ -94,3 +94,9 @@ a {
 /* Tailwind applied utilities */
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.start-wrapper {
+		@apply relative min-h-[52rem] sm:h-[30rem] md:min-h-screen;
+	}
+}

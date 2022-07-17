@@ -13,7 +13,7 @@ import HomeIcon from "~icons/assets/home"
 >
 	<MobilePageBanner title="Renkidzieło" subtitle="Projekt ekologiczny" icon={HomeIcon} />
 
-	<div class="wrapper start-wrapper">
+	<div class="start-wrapper">
 		<div v-rellax="{ speed: -5 }" class="gradient rellax"></div>
 		<figure v-rellax="{ speed: -3 }" class="gear-graphic rellax">
 			<img src="/img/THE GEAR.png" width="818" height="885" />
@@ -31,16 +31,15 @@ import HomeIcon from "~icons/assets/home"
 			</p>
 		</div> -->
 		<!-- CONTENT: -->
-		<Hero
-			title="Efektowne i artystyczne rękodzieła."
-			cta={`Przeglądnij galerię produktów,\n na pewno znajdziesz coś dla siebie!`}
-		/>
+		<Hero title="Efektowne i artystyczne rękodzieła.">
+			Przeglądnij galerię produktów, na pewno znajdziesz coś dla siebie!
+		</Hero>
 		<!-- <TopAboveFoldFooter /> -->
 	</div>
 
 	<style>
-		.wrapper {
-			@apply relative overflow-hidden pt-64 sm:pt-40 md:pt-72 lg:pt-0;
+		.start-wrapper {
+			@apply pt-64 sm:pt-40 md:pt-72 lg:pt-0;
 		}
 		.gradient {
 			@apply absolute -z-1 w-screen h-[250vw] top-0 left-0;

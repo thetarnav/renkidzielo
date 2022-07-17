@@ -1,9 +1,49 @@
 ---
 import Layout from "@/layouts/Layout.astro"
+import Hero from "@components/landing/Hero.astro"
+import MobilePageBanner from "@components/MobilePageBanner.astro"
+
+import LampIcon from "~icons/assets/lamp"
 ---
 
-<Layout title="Lampy">
-	<main>
-		<h1>Lampy</h1>
-	</main>
+<Layout title="Projekt Renkidzieło — Lampy">
+	<MobilePageBanner title="/Lampy" icon={LampIcon} />
+
+	<div class="start-wrapper">
+		<div v-rellax="{ speed: 3 }" class="bg-element rellax"></div>
+		<figure v-rellax="{ speed: $screen.lg ? -3 : 1 }" class="collage-graphic rellax">
+			<img src="/img/lamps collage.png" width="900" height="900" />
+		</figure>
+
+		<Hero title="Wszystko złoto co się świeci">
+			Przeglądnij mój sklep, jeśli chcesz mieć swoją własną dekoracyjną lampę. <br />
+			<b>Rozświetl swoje wnętrza ze stylem!</b>
+		</Hero>
+		<!-- <TopStartContent page="lamps" />
+		<TopAboveFoldFooter /> -->
+	</div>
+
+	<style>
+		.start-wrapper {
+			@apply pt-48 sm:pt-36 md:pt-72;
+
+			.bg-element {
+				@apply fixed -z-1 -top-24 inset-x-0 h-[180vh];
+				@include dithered-gradient(circle, 67% 20%, 5%, 85%);
+
+				&:after {
+					content: "";
+					@apply absolute z-50 top-[14%] right-[15%] w-44 h-44 md:w-60 md:h-60 lg:right-[25%] bg-contain;
+					background-image: url("/img/bg-lamp-vector.svg");
+				}
+			}
+
+			.collage-graphic {
+				@apply absolute -z-1 w-[110vw] h-[110vw] top-80vh left-0;
+				@apply sm:left-40vw sm:top-90vh sm:w-70vw sm:h-70vw md:top-80vh;
+				@apply lg:left-auto lg:h-[45vw] lg:w-[45vw] lg:right-[-5vw] lg:top-[60vh];
+				@include radial-mask(circle, left, 45%, 95%);
+			}
+		}
+	</style>
 </Layout>

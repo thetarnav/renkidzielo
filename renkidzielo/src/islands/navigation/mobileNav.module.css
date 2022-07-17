@@ -1,14 +1,15 @@
-.mobile-nav {
+.wrapper {
 	--margin: theme(spacing.8);
 	--size: theme(spacing.18);
 	--shift: theme(spacing.1);
+}
 
+.mobile-nav {
 	--far-pos: calc(100% - (var(--size) + var(--margin)));
 	--far-shift: calc(100% - (var(--size) + var(--margin) - var(--shift)));
 	--close-pos: calc(100% - var(--margin));
 	--close-shift: calc(100% - (var(--margin) + var(--shift)));
 
-	transition: clip-path 0.4s;
 	clip-path: polygon(
 		var(--far-shift) var(--far-pos),
 		var(--close-pos) var(--far-shift),
@@ -20,6 +21,12 @@
 }
 .mobile-nav:global(.open) {
 	clip-path: polygon(0 -5%, 130% 0, 130% 130%, -20% 130%);
+	transition: clip-path 0.4s;
+	@apply opacity-100 pointer-events-auto;
+}
+.mobile-nav:global(:not(.open)) {
+	transition: clip-path 0.4s, opacity 0.001s 0.4s;
+	@apply opacity-0 pointer-events-none;
 }
 .mobile-nav:before {
 	content: "";
@@ -32,8 +39,8 @@
 }
 
 .toggle-button {
-	position: absolute;
-	z-index: 2000;
+	position: fixed;
+	z-index: 2147483645;
 	right: var(--margin);
 	bottom: var(--margin);
 	--button-size: var(--size);

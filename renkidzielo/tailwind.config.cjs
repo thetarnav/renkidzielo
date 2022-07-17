@@ -289,7 +289,7 @@ module.exports = {
 				},
 				".body": {
 					"text-transform": "none",
-					"letter-spacing": "0",
+					"letter-spacing": "-0.025em",
 					"font-family": "Inter, Epilogue, Poppins, ui-sans-serif, system-ui, sans-serif",
 					"font-weight": 400,
 					"line-height": "2rem",

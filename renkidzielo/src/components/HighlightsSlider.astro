@@ -1,0 +1,106 @@
+---
+import { BACKEND_ENDPOINT } from "@/utils/variables"
+
+// TODO: move fetch logic to a separate api module
+export interface Highlight {
+	id: string
+	isAvailable: boolean
+	title: string
+	description: string
+	thumbnail: string
+}
+
+const endpoint = BACKEND_ENDPOINT + "/highlights"
+
+async function fetchHighlights(): Promise<Highlight[]> {
+	const response = await fetch(endpoint)
+	const json = await response.json()
+	return json
+}
+
+const highlights = await fetchHighlights()
+---
+
+<div class="relative w-screen aspect-w-4 aspect-h-5 mb-48">
+	<div class="
+		h-full w-full flex space-x-16
+		overflow-y-scroll scroll-smooth snap-x snap-mandatory
+	">
+		{highlights.map(({ thumbnail, title }) => (
+			<figure
+				class="
+					relative w-full h-full flex-shrink-0 overflow-hidden
+					snap-center
+				"
+			>
+				<img class="w-full h-full object-cover" src={thumbnail} alt={title} />
+			</figure>
+		))}
+	</div>
+</div>
+<!-- <img src="/media/cc0-images/elephant-660-480.jpg" alt="Elephant at sunset" /> -->
+
+<!-- <div
+			class="slider-group-container"
+		>
+			<div
+				class="slider-container"
+			>
+				<figure class="swiper-wrapper">
+					<nuxt-link
+						v-for="product in highlights"
+						:key="product.id"
+						:to="localePath(`/gallery/${product.id}`)"
+						:lazy-background="product.thumbnail.formats.large.url"
+						class="swiper-slide"
+					></nuxt-link>
+				</figure>
+				<div class="navigation mobile">
+					<Icon icon="chevron-left" />
+					<span class="numbers small">
+						<div>{{ activeIndex }}</div>
+						<div>/</div>
+						<div>{{ highlights.length }}</div>
+					</span>
+					<Icon icon="chevron-right" />
+				</div>
+			</div>
+			<div class="details">
+				<div class="navigation desktop">
+					<IconButton
+						icon="arrow-left"
+						class="outline"
+						@click="changeSlide(-1)"
+					/>
+					<span class="numbers font-semibold">
+						<div>{{ activeIndex }}</div>
+						<div>/</div>
+						<div>{{ highlights.length }}</div>
+						<IconButton
+					</span>
+						icon="arrow-right"
+						class="outline"
+						@click="changeSlide(1)"
+					/>
+				</div>
+				<transition name="fade" mode="out-in">
+					<div :key="activeIndex" class="text">
+						<nuxt-link
+							:to="localePath(`/gallery/${activeProduct.id}`)"
+							class="title"
+						>
+							{{ activeProduct.title | Bluu }}
+						</nuxt-link>
+						<p class="desc">
+							{{ description }}
+						</p>
+					</div>
+				</transition>
+				<Button
+					:to="localePath(`/gallery/${activeProduct.id}`)"
+					trailing-icon="eye"
+					class="see-product-btn"
+					>{{ $t('common.see-product') }}</Button
+				>
+			</div>
+		</div> -->

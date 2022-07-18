@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro"
 
 import Hero from "@components/landing/Hero.astro"
 import MobilePageBanner from "@components/MobilePageBanner.astro"
+import HighlightsSlider from "@components/HighlightsSlider.astro"
 
 import Gradient from "@islands/ui/gradient/Gradient"
 
@@ -43,35 +44,54 @@ import HomeIcon from "~icons/assets/home"
 	<style>
 		.start-wrapper {
 			@apply pt-64 sm:pt-40 md:pt-72 lg:pt-0;
-		}
-		.gradient {
-			@apply absolute -z-1 w-screen h-[250vw] top-0 left-0;
-			--gradient-shape: 110% 65%;
-			--gradient-position: 120% 40%;
 
-			@media screen and (min-width: 1000px) {
-				@apply h-[250vh];
-				--gradient-shape: 95% 60%;
-			}
-		}
-		.gear-graphic {
-			@apply absolute -z-1 -right-16 top-[6.75vh];
-			@apply w-[338.42px] h-[365.33px];
-			@apply md:w-[494px] md:h-[533px] md:right-auto md:left-col-6 lg:left-col-8 md:ml-72 md:top-[10vh];
-		}
-		.collage-graphic {
-			@apply hidden lg:block;
-			@apply absolute -z-1 h-[90vmin] w-[90vmin] right-[83vw] top-[18vh];
-			img {
-				transform: matrix(-1, 0.05, 0.05, 1, 0, 0);
-			}
-			@include radial-mask(circle, left, 45%, 95%);
-		}
+			.gradient {
+				@apply absolute -z-1 w-screen h-[250vw] top-0 left-0;
+				--gradient-shape: 110% 65%;
+				--gradient-position: 120% 40%;
 
-		.project-info {
-			@apply hidden lg:block;
-			@apply mt-[17.75vh] ml-col-7 w-80 p-6 md:mb-[6vh];
-			@apply bg-gray-50 text-gray-800 rounded-lg;
+				@media screen and (min-width: 1000px) {
+					@apply h-[250vh];
+					--gradient-shape: 95% 60%;
+				}
+			}
+			.gear-graphic {
+				@apply absolute -z-1 -right-16 top-[6.75vh];
+				@apply w-[338.42px] h-[365.33px];
+				@apply md:w-[494px] md:h-[533px] md:right-auto md:left-col-6 lg:left-col-8 md:ml-72 md:top-[10vh];
+			}
+			.collage-graphic {
+				@apply hidden lg:block;
+				@apply absolute -z-1 h-[90vmin] w-[90vmin] right-[83vw] top-[18vh];
+				img {
+					transform: matrix(-1, 0.05, 0.05, 1, 0, 0);
+				}
+				@include radial-mask(circle, left, 45%, 95%);
+			}
+
+			.project-info {
+				@apply hidden lg:block;
+				@apply mt-[17.75vh] ml-col-7 w-80 p-6 md:mb-[6vh];
+				@apply bg-gray-50 text-gray-800 rounded-lg;
+			}
 		}
 	</style>
+
+	<section class="py-16 md:my-12 lg:my-24 border-b border-gray-800 md:border-b-0">
+		<header
+			class="
+				p-6 md:px-1-cols md:py-10;
+				sm:ml-12 sm:max-w-max;
+				md:border border-gray-800 rounded;
+				md:ml-col-4 lg:ml-col-3;
+				lg:w-10-cols lg:max-w-full;
+			"
+		>
+			<h2 class="pb-6 border-b border-gray-800">Wyróżnione <br /> produkty</h2>
+			<p class="pt-4 text-gray-800">
+				Kawałek mojej radosnej twórczości. <br /> Wszystkie pozostałe prace znajdziesz w galerii.
+			</p>
+		</header>
+		<HighlightsSlider />
+	</section>
 </Layout>

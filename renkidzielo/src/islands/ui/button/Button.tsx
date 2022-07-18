@@ -1,4 +1,4 @@
-import { ParentComponent, Show, JSX, splitProps } from "solid-js"
+import { ParentComponent, Show, JSX, splitProps, Component } from "solid-js"
 import { Dynamic } from "solid-js/web"
 import styles from "./Button.module.css"
 
@@ -10,6 +10,8 @@ export type ButtonLocalProps = {
 	square?: boolean
 	primary?: boolean
 	rounded?: boolean
+	leadingIcon?: Component
+	trailingIcon?: Component
 }
 
 export type ButtonProps = ButtonLocalProps &
@@ -25,6 +27,8 @@ const localPropKeys = [
 	"slimPadding",
 	"primary",
 	"rounded",
+	"leadingIcon",
+	"trailingIcon",
 ] as const
 
 const Button: ParentComponent<ButtonProps> = props => {
@@ -47,11 +51,11 @@ const Button: ParentComponent<ButtonProps> = props => {
 				[styles["edge-rounded"]]: props.rounded,
 			}}
 		>
-			{/* <Icon v-if="leadingIcon" :icon="leadingIcon" /> */}
+			{props.leadingIcon && <props.leadingIcon />}
 			<Show when={"children" in props}>
 				<span>{props.children}</span>
 			</Show>
-			{/* <Icon v-if="trailingIcon" :icon="trailingIcon" /> */}
+			{props.trailingIcon && <props.trailingIcon />}
 		</Dynamic>
 	)
 }

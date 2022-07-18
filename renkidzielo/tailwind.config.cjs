@@ -86,6 +86,9 @@ module.exports = {
 			zIndex: {
 				"-1": "-1",
 			},
+			aspectRatio: {
+				portrait: "4 / 5",
+			},
 			borderRadius: {
 				DEFAULT: ".15rem",
 			},
@@ -236,7 +239,6 @@ module.exports = {
 	},
 	// eslint-disable-next-line global-require
 	plugins: [
-		require("@tailwindcss/aspect-ratio"),
 		plugin(({ addUtilities }) => {
 			const newUtilities = {
 				".heading-1": {

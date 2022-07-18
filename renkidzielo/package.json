@@ -11,9 +11,11 @@
 		"preview": "astro preview"
 	},
 	"dependencies": {
+		"@solid-primitives/keyed": "^1.0.0",
 		"@solid-primitives/props": "^2.1.8",
 		"@solid-primitives/scheduled": "^1.0.0",
-		"solid-js": "^1.4.7"
+		"solid-js": "^1.4.7",
+		"solid-transition-group": "^0.0.10"
 	},
 	"devDependencies": {
 		"@astrojs/solid-js": "^0.4.0",

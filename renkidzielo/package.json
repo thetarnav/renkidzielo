@@ -12,6 +12,7 @@
 	},
 	"dependencies": {
 		"@solid-primitives/props": "^2.1.8",
+		"@solid-primitives/scheduled": "^1.0.0",
 		"solid-js": "^1.4.7"
 	},
 	"devDependencies": {

@@ -52,7 +52,7 @@ const pages = [
 						<a href={route}>{name}</a>
 					</h4>
 					<figure v-rellax="{ speed: $screen.lg ? 1 : 0.5, center: true }">
-						<img src={image} alt={name} />
+						<img src={image} alt={name} loading="lazy" />
 					</figure>
 				</div>
 				<div class="content-group">

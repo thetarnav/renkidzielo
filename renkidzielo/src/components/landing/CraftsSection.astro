@@ -1,0 +1,167 @@
+---
+import Button from "@islands/ui/button/Button"
+import IconFrame from "@islands/ui/icon/IconFrame"
+
+import ArrowRight from "~icons/assets/arrow-right"
+import EyeIcon from "~icons/assets/eye"
+
+const pages = [
+	{
+		route: "/lamps",
+		name: "Lampy",
+		subtitle: "Niezwykłe i piękne Lampy na biurko.",
+		synopsis: "Lampy wykonane przeze mnie cechują się wysoką jakością i dbałością o detale.",
+		image: "/img/lamps collage.png",
+		color: "#FCC499",
+	},
+	{
+		route: "/belt-bags",
+		name: "Nerki",
+		subtitle: "Ręcznie szyte nerki i torby.",
+		synopsis: "Z materiałów ponownego użytku (ekologiczne) i własnych szalonych pomysłów.",
+		image: "/img/bag.png",
+		color: "#FF5F4B",
+	},
+	{
+		route: "/paintings",
+		name: "Obrazy",
+		subtitle: "Malarstwo ekspresyjne.",
+		synopsis:
+			"Wykonywane różnymi technikami, obrazy pełne ekspresji. W samodzielnie wykonanych ramach.",
+		image: "/img/skarpa.jpg",
+		color: "#5F4BFF",
+	},
+]
+---
+
+<section class="relative mt-12 mb-24">
+	<header>
+		<h3 class="mb-10 lg:heading-2">Odmiany Mojego Rzemiosła</h3>
+		<p class="mb-2 lg:w-8-cols">
+			Moje najlepsze i najbardziej doceniane prace należą do poniższych kategorii:
+		</p>
+		<h6>
+			{pages.map(({ name }) => <span>{name}</span>)}
+		</h6>
+	</header>
+	<ul class="craft-list">
+		{pages.map(({ name, subtitle, synopsis, color, image, route }) => (
+			<li class="list-item" style={`--craft-color: ${color}`}>
+				<div class="title-group">
+					<h4>
+						<a href={route}>{name}</a>
+					</h4>
+					<figure v-rellax="{ speed: $screen.lg ? 1 : 0.5, center: true }">
+						<img src={image} alt={name} />
+					</figure>
+				</div>
+				<div class="content-group">
+					<div class="synopsis">
+						<h6>{subtitle}</h6>
+						<p class="small">{synopsis}</p>
+					</div>
+					<div class="hidden lg:flex space-x-4 my-8">
+						<IconFrame icon={ArrowRight} class="outline w-12" />
+						<Button href={route} trailingIcon={EyeIcon}>
+							Zobacz
+						</Button>
+					</div>
+				</div>
+			</li>
+		))}
+	</ul>
+</section>
+
+<style>
+	section {
+		&:before {
+			content: "";
+			@apply absolute -z-1 top-0 inset-x-0 h-[120%] lg:h-[160%];
+			@apply bg-gradient-to-b from-gray-200 to-transparent;
+			@apply md:rotate-180;
+			mask: var(--noise), linear-gradient(to bottom, rgba(#000, 0.65), transparent);
+		}
+	}
+
+	header {
+		@apply px-8 py-16 text-center;
+		@apply flex flex-col items-center;
+		@apply sm:px-24 md:py-14 md:mb-20 lg:mb-24;
+		@apply md:border border-gray-800 md:mx-col-3;
+		h6 {
+			@apply flex justify-center divide-x-3 divide-gray-800;
+			span {
+				@apply font-bold px-3 py-0.5;
+			}
+		}
+	}
+
+	.craft-list {
+		@apply flex flex-col items-stretch  space-y-8 px-4;
+		@apply sm:px-24 md:items-center lg:space-y-24;
+	}
+
+	.list-item {
+		@apply relative flex min-h-[14rem] lg:min-h-[20rem];
+		@apply lg:grid grid-cols-2;
+		@apply rounded-2xl border border-gray-800 shadow-wide;
+		@apply md:w-14-cols;
+
+		&:before {
+			content: "";
+			@apply absolute inset-0 -z-1 rounded-2xl lg:scale-x-[-1];
+			background: radial-gradient(
+				80% 163% at 92% 159%,
+				var(--craft-color, theme(colors.orange.500)) 0%,
+				theme(colors.white) 95%
+			);
+		}
+
+		&:after {
+			content: "";
+			@apply hidden xl:block absolute left-1/2 top-20 bottom-20 w-px  bg-gray-800;
+		}
+
+		.content-group {
+			@apply order-1 lg:order-2;
+			@apply ml-4 my-6 lg:mx-1-cols lg:my-10;
+
+			.synopsis {
+				@apply w-52 sm:w-64 lg:w-auto;
+				> * {
+					@apply mb-2 small lg:body;
+				}
+				h6 {
+					@apply uppercase tracking-wider;
+				}
+			}
+		}
+
+		.title-group {
+			@apply order-2 sm:ml-10 lg:relative;
+
+			> h4 {
+				@apply bluu-small underline mt-6 ml-6;
+				@apply lg:absolute lg:bluu right-2 lg:mt-10 xl:right-1-cols;
+			}
+			> figure {
+				@apply absolute top-24 w-36 h-36;
+				@apply flex justify-center items-center;
+				@apply lg:w-72 lg:h-72 lg:-left-20 lg:top-28 xl:w-80 xl:h-80;
+
+				&:after {
+					content: "";
+					@apply absolute top-4 left-2 w-24 h-24 opacity-80;
+					@apply lg:top-14 lg:left-8 lg:w-56 lg:h-56;
+					@apply rounded-full bg-blend-multiply mix-blend-multiply;
+					background: var(--craft-color, theme(colors.secondary));
+				}
+
+				> img {
+					height: inherit;
+					height: -webkit-fill-available;
+				}
+			}
+		}
+	}
+</style>

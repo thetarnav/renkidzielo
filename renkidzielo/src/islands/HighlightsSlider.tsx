@@ -1,6 +1,7 @@
-import { Component, createMemo, createSignal } from "solid-js"
+import { Component, createMemo, createSignal, onMount } from "solid-js"
 import { Transition } from "solid-transition-group"
 import { Rerun } from "@solid-primitives/keyed"
+import { animate } from "motion"
 
 import { Highlight } from "@/types/api"
 import { bluuText } from "@/utils/utils"
@@ -15,8 +16,25 @@ const HighlightsSlider: Component<{ highlights: Highlight[] }> = props => {
 	const [index, setIndex] = createSignal(0)
 	const activeItem = createMemo(() => props.highlights[index()])
 
+	let prevH = 0
+	let buttonContainer!: HTMLDivElement
+	let detailsElement!: HTMLDivElement
+
+	const onBeforeEnter = () => {
+		requestAnimationFrame(() => {
+			const newH = detailsElement.clientHeight
+			if (newH !== prevH) {
+				animate(buttonContainer, { y: [prevH - newH, 0] }, { duration: 0.3 })
+			}
+			prevH = newH
+		})
+	}
+	onMount(() => {
+		prevH = detailsElement.offsetHeight
+	})
+
 	return (
-		<div class="relative w-screen aspect-portrait mb-32">
+		<div class="relative w-screen aspect-portrait mb-48">
 			<Slider items={props.highlights} onSlideChange={setIndex}>
 				{({ thumbnail, title }) => (
 					<img class="w-full h-full object-cover" src={thumbnail} alt={title} loading="lazy" />
@@ -47,10 +65,10 @@ const HighlightsSlider: Component<{ highlights: Highlight[] }> = props => {
 
 			<div class="absolute top-full inset-x-0">
 				<div class="-mt-11 mx-6 flex flex-col">
-					<Transition name="fade" mode="outin">
+					<Transition name="fade" mode="outin" onBeforeEnter={onBeforeEnter}>
 						<Rerun on={activeItem}>
 							{({ title, description }) => (
-								<div>
+								<div ref={detailsElement}>
 									<a class="min-h-[5.5rem] bluu text-black underline cursor-pointer">
 										{bluuText(title)}
 									</a>
@@ -59,7 +77,7 @@ const HighlightsSlider: Component<{ highlights: Highlight[] }> = props => {
 							)}
 						</Rerun>
 					</Transition>
-					<div class="self-end mt-8">
+					<div class="self-end mt-8" ref={buttonContainer}>
 						<Button trailingIcon={EyeIcon}>Zobacz Produkt</Button>
 					</div>
 				</div>

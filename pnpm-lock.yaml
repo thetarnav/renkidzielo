@@ -23,6 +23,7 @@ importers:
       '@solid-primitives/scheduled': ^1.0.0
       astro: ^1.0.0-beta.72
       autoprefixer: ^10.4.7
+      motion: ^10.13.1
       solid-js: ^1.4.7
       solid-transition-group: ^0.0.10
       tailwindcss: ^3.1.6
@@ -31,6 +32,7 @@ importers:
       '@solid-primitives/keyed': 1.0.0_solid-js@1.4.7
       '@solid-primitives/props': 2.1.8_solid-js@1.4.7
       '@solid-primitives/scheduled': 1.0.0_solid-js@1.4.7
+      motion: 10.13.1
       solid-js: 1.4.7
       solid-transition-group: 0.0.10_solid-js@1.4.7
     devDependencies:
@@ -508,6 +510,67 @@ packages:
   /@ljharb/has-package-exports-patterns/0.0.2:
     resolution: {integrity: sha512-4/RWEeXDO6bocPONheFe6gX/oQdP/bEpv0oL4HqjPP5DCenBSt0mHgahppY49N0CpsaqffdwPq+TlX9CYOq2Dw==}
     dev: true
+
+  /@motionone/animation/10.13.1:
+    resolution: {integrity: sha512-dxQ+1wWxL6iFHDy1uv6hhcPjIdOg36eDT56jN4LI7Z5HZRyLpq8x1t7JFQclo/IEIb+6Bk4atmyinGFdXVECuA==}
+    dependencies:
+      '@motionone/easing': 10.13.1
+      '@motionone/types': 10.13.0
+      '@motionone/utils': 10.13.1
+      tslib: 2.4.0
+    dev: false
+
+  /@motionone/dom/10.13.1:
+    resolution: {integrity: sha512-zjfX+AGMIt/fIqd/SL1Lj93S6AiJsEA3oc5M9VkUr+Gz+juRmYN1vfvZd6MvEkSqEjwPQgcjN7rGZHrDB9APfQ==}
+    dependencies:
+      '@motionone/animation': 10.13.1
+      '@motionone/generators': 10.13.1
+      '@motionone/types': 10.13.0
+      '@motionone/utils': 10.13.1
+      hey-listen: 1.0.8
+      tslib: 2.4.0
+    dev: false
+
+  /@motionone/easing/10.13.1:
+    resolution: {integrity: sha512-INEsInHHDHVgx0dp5qlXi1lMXBqYicgLMMSn3zfGzaIvcaEbI1Uz8BoyNV4BiclTupG7RYIh+T6BU83ZcEe74g==}
+    dependencies:
+      '@motionone/utils': 10.13.1
+      tslib: 2.4.0
+    dev: false
+
+  /@motionone/generators/10.13.1:
+    resolution: {integrity: sha512-+HK5u2YcNJCckTTqfOLgSVcrWv2z1dVwrSZEMVJuAh0EnWEWGDJRvMBoPc0cFf/osbkA2Rq9bH2+vP0Ex/D8uw==}
+    dependencies:
+      '@motionone/types': 10.13.0
+      '@motionone/utils': 10.13.1
+      tslib: 2.4.0
+    dev: false
+
+  /@motionone/svelte/10.13.1:
+    resolution: {integrity: sha512-9d73nH4Uow0zC68ubSRYbmN/e2V7t16dSoDrBU1TfY2fue4ol+NJo8cd8ptT+5RRKmslmB3fg4swmDcGkOslJA==}
+    dependencies:
+      '@motionone/dom': 10.13.1
+      tslib: 2.4.0
+    dev: false
+
+  /@motionone/types/10.13.0:
+    resolution: {integrity: sha512-qegk4qg8U1N9ZwAJ187BG3TkZz1k9LP/pvNtCSlqdq/PMUDKlCFG4ZnjJ481P0IOH/vIw1OzIbKIuyg0A3rk9g==}
+    dev: false
+
+  /@motionone/utils/10.13.1:
+    resolution: {integrity: sha512-TjDPTIppaf3ofBXQv4ZzAketJgN0sclALXfZ6mfrkjJkOy83mLls9744F+6S+VKCpBmvbZcBY4PQfrfhAfeMtA==}
+    dependencies:
+      '@motionone/types': 10.13.0
+      hey-listen: 1.0.8
+      tslib: 2.4.0
+    dev: false
+
+  /@motionone/vue/10.13.1:
+    resolution: {integrity: sha512-Zg0FnLWVLFhpAd3fh3avkTgbYITE75ldgwh2VMz346uwOpKz2gPHyYq5CmoW/wzUMvfCMfjy1dqmzZThii71ew==}
+    dependencies:
+      '@motionone/dom': 10.13.1
+      tslib: 2.4.0
+    dev: false
 
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2155,6 +2218,10 @@ packages:
       space-separated-tokens: 2.0.1
     dev: true
 
+  /hey-listen/1.0.8:
+    resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
+    dev: false
+
   /hosted-git-info/5.0.0:
     resolution: {integrity: sha512-rRnjWu0Bxj+nIfUOkz0695C0H6tRrN5iYIzYejb0tDEefe2AekHu/U5Kn9pEie5vsJqpNQU02az7TGSH3qpz4Q==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16}
@@ -3249,6 +3316,17 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dev: true
+
+  /motion/10.13.1:
+    resolution: {integrity: sha512-MPTlDUiIhB5q/KGt3LPykAelJMZ6EM5xNr/zL21PlD68TLsNY0ox8rPiXfTUzjCh5BV04+8RLkjhnj/UNInH6w==}
+    dependencies:
+      '@motionone/animation': 10.13.1
+      '@motionone/dom': 10.13.1
+      '@motionone/svelte': 10.13.1
+      '@motionone/types': 10.13.0
+      '@motionone/utils': 10.13.1
+      '@motionone/vue': 10.13.1
+    dev: false
 
   /mri/1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
@@ -4489,7 +4567,6 @@ packages:
 
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
-    dev: true
 
   /tsm/2.2.1:
     resolution: {integrity: sha512-qvJB0baPnxQJolZru11mRgGTdNlx17WqgJnle7eht3Vhb+VUR4/zFA5hFl6NqRe7m8BD9w/6yu0B2XciRrdoJA==}

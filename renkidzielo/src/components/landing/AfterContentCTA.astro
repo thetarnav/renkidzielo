@@ -1,0 +1,119 @@
+---
+import IconRing from "@islands/ui/icon/IconRing"
+import Button from "@islands/ui/button/Button"
+
+import ArrowDown from "~icons/assets/arrow-down"
+import ArrowUp from "~icons/assets/arrow-up"
+import BagIcon from "~icons/assets/bag"
+import GridIcon from "~icons/assets/grid"
+
+import { MAIN_SHOP_URL } from "@/utils/variables"
+---
+
+<section class="mt-28 xl:mt-48">
+	<div
+		class="
+      relative mx-4 pr-8 pl-4 py-14
+      rounded-lg text-black shadow-cherry
+      sm:mx-20 sm:px-12 md:mx-col-3 md:py-20 md:px-0 xl:py-28 xl:mx-col-4
+    "
+	>
+		<div class="gradient absolute -z-1 inset-0 rounded-lg"></div>
+		<div
+			class="
+        flex flex-wrap justify-end content-center items-center
+        md:justify-center md:items-start
+      "
+		>
+			<h2 class="
+        text-right effect-3d mb-4
+        md:w-7-cols md:mt-6
+      ">
+				Spodobała się tobie, moja twór&shy;czo&shy;ść?
+			</h2>
+			<p
+				class="
+          body text-right font-medium mr-6 max-w-[80%] sm:max-w-full
+          md:w-7-cols md:text-left md:order-2 md:mr-0 md:mt-6
+        "
+			>
+				Rozgość się zatem w moim<br />
+				<a href={MAIN_SHOP_URL} target="_blank" class="text-orange-100 font-semibold"
+					>sklepie internetowym.
+				</a><br />
+				Poczujesz się jak w domu!
+			</p>
+			<div
+				class="
+          flex-shrink-0 flex flex-col items-center
+          sm:hidden md:flex md:order-1 md:mx-1-cols
+        "
+			>
+				<div class="w-px h-28 md:h-48 bg-gray-900"></div>
+				<IconRing icon={ArrowDown} />
+			</div>
+			<div
+				class="
+          mt-8 flex flex-col items-end space-y-4
+          sm:items-start md:order-3 md:space-y-0
+          md:grid grid-cols-2 md:gap-6
+        "
+			>
+				<Button trailingIcon={BagIcon} href={MAIN_SHOP_URL} primary rounded class="md:order-2"
+					>Dostępne Produkty
+				</Button>
+				<Button
+					trailingIcon={GridIcon}
+					href="/gallery"
+					outline
+					rounded
+					class="!h-16 w-max md:ml-auto"
+					>Galeria
+				</Button>
+			</div>
+		</div>
+	</div>
+	<!-- v-waypoint="{ active: true, callback: onWaypoint }"
+  :class="{ hide: !swipeUpVisible }" -->
+	<div
+		class="
+    relative p-14 text-center body font-medium lg:hidden
+    flex justify-center items-center [&>*]:shrink-0
+    "
+	>
+		<div
+			class="swipe-up-gradient
+        absolute -z-1 inset-x-0 bottom-0 h-[130%]
+        bg-gradient-to-t from-gray-200 to-transparent
+      "
+		>
+		</div>
+		<ArrowUp class="w-8" />
+		<p class="w-fit">
+			Przeciągnij palcem w górę by przejść do
+			<a href="/gallery" class="text-primary font-semibold">
+				Galerii
+				<GridIcon class="inline ml-1 -mt-1" />
+			</a>
+		</p>
+		<ArrowUp class="w-8" />
+	</div>
+</section>
+
+<style>
+	.gradient {
+		background: linear-gradient(
+			100deg,
+			theme(colors.orange.500) 3%,
+			theme(colors.orange.700) 39%,
+			theme(colors.orange.400) 69%,
+			theme(colors.orange.100) 100%
+		);
+		mask: var(--noise),
+			linear-gradient(100deg, rgba(0 0 0 / 0.6) -20%, rgba(0 0 0 / 0.9) 39%, rgba(0 0 0 / 0.4) 130%);
+	}
+
+	.swipe-up-gradient {
+		mask: var(--noise), linear-gradient(to top, rgb(0 0 0 / 0.7), transparent);
+	}
+</style>

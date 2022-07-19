@@ -86,9 +86,6 @@ h5 {
 h6 {
 	@apply heading-6 break-words;
 }
-p {
-	@apply body;
-}
 a {
 	text-decoration: none;
 	color: inherit;

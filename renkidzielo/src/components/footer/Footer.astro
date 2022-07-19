@@ -1,0 +1,43 @@
+---
+import LogoMono from "~icons/assets/logo-mono"
+
+import { EMAIL, PHONE } from "@/utils/variables"
+
+import Socials from "@islands/ui/socials/Socials"
+---
+
+<footer class="
+    relative z-[1]
+    bg-gray-50 border-t border-gray-900 small
+  ">
+	<div class="flex flex-col items-center space-y-4 p-6">
+		<div class="flex items-center space-x-2 mt-1">
+			<LogoMono class="w-9" />
+			<p class="btn-text">Renkidzieło</p>
+		</div>
+		<div class="text-center space-y-1">
+			<p>{EMAIL}</p>
+			<p>{PHONE}</p>
+		</div>
+		<div>
+			<Socials />
+		</div>
+	</div>
+	<div class="p-6 border-t border-gray-900">
+		<div class="w-1/2 space-y-4">
+			<p>
+				Projekt autorstwa
+				<a class="btn-text" href="https://www.instagram.com/thea_simulakra/" target="_blank"
+					>Thea&nbsp;Simulakra
+				</a>
+				©&nbsp;2020
+			</p>
+			<p>
+				Design strony www:
+				<a class="btn-text" href="https://www.behance.net/damiantarnawski" target="_blank"
+					>thetarnav
+				</a>
+			</p>
+		</div>
+	</div>
+</footer>

@@ -1,5 +1,6 @@
 ---
 import Navigation from "@components/navigation/Navigation.astro"
+import Footer from "@components/footer/Footer.astro"
 import { BASE_URL } from "@/utils/variables"
 
 import "@/styles/variables.css"
@@ -56,5 +57,6 @@ const {
 		<div class="relative overflow-hidden min-h-screen flex flex-col">
 			<slot></slot>
 		</div>
+		<Footer />
 	</body>
 </html>

@@ -5,6 +5,6 @@ export const MAIN_SHOP_URL = ALLEGRO_URL
 export const BASE_URL = "https://renkidzielo.netlify.app"
 
 export const EMAIL = "renkidzielo@gmail.com"
-export const PHONE = "69 557 35 35"
+export const PHONE = "+48 69 557 35 35"
 
 export const BACKEND_ENDPOINT = "https://my-json-server.typicode.com/thetarnav/renkidzielo"

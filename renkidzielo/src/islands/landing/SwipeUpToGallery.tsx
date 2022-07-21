@@ -7,7 +7,7 @@ import GridIcon from "~icons/assets/grid"
 
 const SwipeUpToGallery: Component<{}> = props => {
 	let ref!: HTMLDivElement
-	const [isVisible] = createVisibilityObserver(() => ref, { threshold: 1 })
+	const [isVisible] = createVisibilityObserver(() => ref, { threshold: 0.8 })
 
 	return (
 		<div ref={ref} class="relative text-center body font-medium lg:hidden">

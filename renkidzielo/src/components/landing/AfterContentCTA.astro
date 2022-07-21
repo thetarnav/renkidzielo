@@ -1,9 +1,9 @@
 ---
 import IconRing from "@islands/ui/icon/IconRing"
 import Button from "@islands/ui/button/Button"
+import SwipeUpToGallery from "@islands/landing/SwipeUpToGallery"
 
 import ArrowDown from "~icons/assets/arrow-down"
-import ArrowUp from "~icons/assets/arrow-up"
 import BagIcon from "~icons/assets/bag"
 import GridIcon from "~icons/assets/grid"
 
@@ -73,31 +73,7 @@ import { MAIN_SHOP_URL } from "@/utils/variables"
 			</div>
 		</div>
 	</div>
-	<!-- v-waypoint="{ active: true, callback: onWaypoint }"
-  :class="{ hide: !swipeUpVisible }" -->
-	<div
-		class="
-    relative p-14 text-center body font-medium lg:hidden
-    flex justify-center items-center [&>*]:shrink-0
-    "
-	>
-		<div
-			class="swipe-up-gradient
-        absolute -z-1 inset-x-0 bottom-0 h-[130%]
-        bg-gradient-to-t from-gray-200 to-transparent
-      "
-		>
-		</div>
-		<ArrowUp class="w-8" />
-		<p class="w-fit">
-			Przeciągnij palcem w górę by przejść do
-			<a href="/gallery" class="text-primary font-semibold">
-				Galerii
-				<GridIcon class="inline ml-1 -mt-1" />
-			</a>
-		</p>
-		<ArrowUp class="w-8" />
-	</div>
+	<SwipeUpToGallery client:visible />
 </section>
 
 <style>
@@ -111,9 +87,5 @@ import { MAIN_SHOP_URL } from "@/utils/variables"
 		);
 		mask: var(--noise),
 			linear-gradient(100deg, rgba(0 0 0 / 0.6) -20%, rgba(0 0 0 / 0.9) 39%, rgba(0 0 0 / 0.4) 130%);
-	}
-
-	.swipe-up-gradient {
-		mask: var(--noise), linear-gradient(to top, rgb(0 0 0 / 0.7), transparent);
 	}
 </style>

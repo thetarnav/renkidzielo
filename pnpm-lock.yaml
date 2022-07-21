@@ -18,6 +18,7 @@ importers:
     specifiers:
       '@astrojs/solid-js': ^0.4.1
       '@astrojs/tailwind': ^0.2.4
+      '@solid-primitives/intersection-observer': ^1.4.0
       '@solid-primitives/keyed': ^1.0.0
       '@solid-primitives/props': ^2.1.8
       '@solid-primitives/scheduled': ^1.0.0
@@ -29,6 +30,7 @@ importers:
       tailwindcss: ^3.1.6
       unplugin-icons: ^0.14.7
     dependencies:
+      '@solid-primitives/intersection-observer': 1.4.0_solid-js@1.4.7
       '@solid-primitives/keyed': 1.0.0_solid-js@1.4.7
       '@solid-primitives/props': 2.1.8_solid-js@1.4.7
       '@solid-primitives/scheduled': 1.0.0_solid-js@1.4.7
@@ -681,6 +683,15 @@ packages:
       '@proload/core': 0.3.2
       tsm: 2.2.1
     dev: true
+
+  /@solid-primitives/intersection-observer/1.4.0_solid-js@1.4.7:
+    resolution: {integrity: sha512-WNFV4fn3jE/KHh129+gZnyZ4+osUVLk92aN+YCdMJ+LnR4LHWCxmMTlPxYIWe6nb3cK3LUdgg/l5hvzkvuaOdw==}
+    peerDependencies:
+      solid-js: ^1.4.4
+    dependencies:
+      '@solid-primitives/utils': 2.2.1_solid-js@1.4.7
+      solid-js: 1.4.7
+    dev: false
 
   /@solid-primitives/keyed/1.0.0_solid-js@1.4.7:
     resolution: {integrity: sha512-9vznFq6xR1FLEcQH3S3aGZ3iWOY6EZmDEl0raNOXJxdgXnudHepcAOfx8G52bROHJ3AdPnIqv4ITIegPQOK2BA==}

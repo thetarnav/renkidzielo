@@ -6,8 +6,10 @@ import MobilePageBanner from "@components/MobilePageBanner.astro"
 import AfterContentCTA from "@components/landing/AfterContentCTA.astro"
 
 import Gradient from "@islands/ui/gradient/Gradient"
+import IconRing from "@islands/ui/icon/IconRing"
 
 import LampIcon from "~icons/assets/lamp"
+import ArrowDown from "~icons/assets/arrow-down"
 ---
 
 <Layout title="Projekt Renkidzieło — Lampy">
@@ -55,6 +57,74 @@ import LampIcon from "~icons/assets/lamp"
 				@apply sm:left-40vw sm:top-90vh sm:w-70vw sm:h-70vw md:top-80vh;
 				@apply lg:left-auto lg:h-[45vw] lg:w-[45vw] lg:right-[-5vw] lg:top-[60vh];
 				@include radial-mask(circle, left, 45%, 95%);
+			}
+		}
+	</style>
+
+	<main class="mt-80 sm:mt-32 md:mt-80 xl:mt-48">
+		<div
+			class="py-4 mx-6 sm:mx-8 px-2
+				border-b border-gray-800
+				md:mr-auto md:ml-col-1 md:pt-0 md:pb-8
+				lg:ml-col-6 lg:px-0 lg:border-b-0
+				xl:ml-col-7
+			"
+		>
+			<div class="copy">
+				<h4>Mistrzowskie wykonanie</h4>
+				<p>
+					Przy tworzeniu skupiam się na poszukiwaniu i wydobywaniu niezwykłego piękna wykonywanej
+					lampy. Nie zapominam przy tym jednak o praktyczności — moje lampy to nie tylko dekoracja.
+				</p>
+				<p>
+					Gotowe dzieło cechuje się wysoką jakością i dbałością o detale. Każdemu poświęcam tyle
+					pracy, ile wymaga by osiągnąć pożądany wygląd. Ani chwili krócej.
+				</p>
+			</div>
+			<div class="hidden lg:flex relative mt-24 -ml-4">
+				<div class="absolute bottom-full left-1/2 w-px h-18 bg-gray-900 ml-[-0.5px]"></div>
+				<IconRing icon={ArrowDown} />
+			</div>
+		</div>
+		<div class="mt-24 lg:mt-0 lg:flex items-start lg:mx-col-3 xl:mx-col-5">
+			<div
+				class="w-80vw h-[28rem] mx-auto bg-gray-300 opacity-70 rounded-xl
+					md:w-12-cols
+					lg:order-1 lg:ml-1-cols lg:w-auto flex-grow xl:ml-2-cols
+				"
+			>
+			</div>
+			<div
+				class="copy mx-8 sm:mx-10 mt-16 md:mx-auto md:mt-24
+					lg:mt-10 xl:ml-1-cols
+					lg:pb-8 lg:border-b border-gray-800
+				"
+			>
+				<h4>Z czego powstałaś?</h4>
+				<p>
+					Lampy składam z wielu elementów, które często dzieli od siebie wiele kilometrów. Wiele
+					porzuconych i zapomnianych przedmiotów, można by nazwać śmieciami, a skrywają w sobie
+					wiele ukrytego piękna.
+				</p>
+				<p>
+					Ja odnajduje je, czyszczę i przerabiam w świecącą się całość. Dając im przy tym drugie
+					życie. Przez to każda lampa będzie inna, z pochodząca z innych części Polski i świata.
+					Więc nie znajdziesz dwóch takich samych.
+				</p>
+			</div>
+		</div>
+	</main>
+
+	<style>
+		main {
+			.copy {
+				@apply md:w-12-cols lg:w-10-cols xl:w-6-cols;
+				h4 {
+					@apply mb-6;
+				}
+				p {
+					@apply body mb-4;
+				}
 			}
 		}
 	</style>

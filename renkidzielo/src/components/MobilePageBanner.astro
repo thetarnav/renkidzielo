@@ -26,7 +26,6 @@ const Logo = dark ? MonoLogoIcon : LogoIcon
 			{subtitle && <p class="small text-gray-700">{subtitle}</p>}
 		</div>
 	</div>
-	{!dark && <Gradient class="gradient" />}
 	{icon && <IconRing class="page-icon" icon={icon} />}
 	<!-- <LangSwitch /> -->
 </div>
@@ -38,16 +37,6 @@ const Logo = dark ? MonoLogoIcon : LogoIcon
 		@apply flex justify-between items-center;
 		@apply border-b border-gray-900;
 		@apply md:hidden;
-	}
-
-	.gradient {
-		@apply absolute -z-1 pointer-events-none -inset-6 top-0 h-52 opacity-80;
-
-		--gradient-shape: 110% 120%;
-		--gradient-position: 50% -20%;
-		--gradient-start: 10%;
-		--gradient-stop: 100%;
-		--gradient-color-from: theme(colors.gray.500);
 	}
 
 	.page-icon {

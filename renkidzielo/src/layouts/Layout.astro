@@ -56,7 +56,15 @@ const {
 
 	<body>
 		<Navigation />
-		<div class="perspective-wrapper relative overflow-y-scroll overflow-x-hidden h-screen">
+
+		<div class="fixed inset-0">
+			<slot name="fixed"></slot>
+		</div>
+
+		<div
+			id="scrollingElement"
+			class="perspective-wrapper relative overflow-y-scroll overflow-x-hidden h-screen"
+		>
 			<slot></slot>
 			<Footer />
 		</div>

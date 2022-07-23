@@ -1,4 +1,6 @@
 .gradient {
+	@apply pointer-events-none;
+
 	--shape: var(--gradient-shape, circle);
 	--position: var(--gradient-position, 50%);
 	--start: var(--gradient-start, 0%);

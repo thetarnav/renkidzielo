@@ -56,9 +56,15 @@ const {
 
 	<body>
 		<Navigation />
-		<div class="relative overflow-hidden min-h-screen flex flex-col">
+		<div class="perspective-wrapper relative overflow-y-scroll overflow-x-hidden h-screen">
 			<slot></slot>
+			<Footer />
 		</div>
-		<Footer />
+
+		<style>
+			.perspective-wrapper {
+				perspective: 2px;
+			}
+		</style>
 	</body>
 </html>

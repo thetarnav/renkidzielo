@@ -25,9 +25,8 @@ import GridIcon from "~icons/assets/grid"
 	<MobilePageBanner title="Renkidzieło" subtitle="Projekt ekologiczny" icon={HomeIcon} />
 
 	<div class="start-wrapper">
-		<!-- <div v-rellax="{ speed: -5 }" class="gradient rellax"></div> -->
 		<Gradient class="gradient" />
-		<figure v-rellax="{ speed: -3 }" class="gear-graphic rellax">
+		<figure class="gear-graphic rellax">
 			<img src="/img/THE GEAR.png" width="818" height="885" />
 		</figure>
 		<figure class="collage-graphic">
@@ -51,10 +50,10 @@ import GridIcon from "~icons/assets/grid"
 
 	<style>
 		.start-wrapper {
-			@apply pt-64 sm:pt-40 md:pt-72 lg:pt-0;
+			@apply relative preserve-3d pt-64 sm:pt-40 md:pt-72 lg:pt-0;
 
 			.gradient {
-				@apply absolute -z-1 w-screen h-[250vw] top-0 left-0;
+				@apply absolute -z-1 w-screen h-[250vw] top-0 left-0 parallax-100;
 				--gradient-shape: 110% 65%;
 				--gradient-position: 120% 40%;
 
@@ -64,7 +63,7 @@ import GridIcon from "~icons/assets/grid"
 				}
 			}
 			.gear-graphic {
-				@apply absolute -z-1 -right-16 top-[6.75vh];
+				@apply absolute -z-1 -right-28 top-[2.75vh] parallax-50;
 				@apply w-[338.42px] h-[365.33px];
 				@apply md:w-[494px] md:h-[533px] md:right-auto md:left-col-6 lg:left-col-8 md:ml-72 md:top-[10vh];
 			}
@@ -103,12 +102,12 @@ import GridIcon from "~icons/assets/grid"
 		<HighlightsSlider />
 	</section>
 
-	<section class="quality-section">
+	<section class="quality-section preserve-3d">
 		<Gradient class="gradient" />
-		<header>
-			<div class="circle-header">
+		<header class="preserve-3d">
+			<div class="circle-header preserve-3d">
 				<img
-					class="absolute -z-1 inset-0 object-contain"
+					class="absolute -z-1 inset-0 object-contain parallax-25"
 					src="/img/spiral-gradient.svg"
 					loading="lazy"
 				/>
@@ -209,25 +208,24 @@ import GridIcon from "~icons/assets/grid"
 		}
 	</style>
 
-	<section class="history-section relative my-24 lg:my-40">
+	<section class="history-section relative my-24 preserve-3d lg:my-40">
 		<header
 			class="
-				relative h-96 px-16 py-12 ml-12
+				relative h-96 px-16 py-12 ml-12 preserve-3d
 				sm:ml-32 md:mx-col-3 md:px-0 lg:h-[36rem] lg:py-16
 				flex items-end justify-start text-white
 			"
-			v-rellax="{ speed: -1, center: true }"
 		>
-			<img
-				class="absolute inset-0 h-full object-cover"
-				src="/img/ruins.jpg"
-				alt="zdjęcie przykładowych ruin"
-				loading="lazy"
-			/>
-			<Gradient class="gradient absolute inset-0 h-full" />
-			<h2 class="relative z-10 md:ml-6-cols md:w-[32vw]" v-rellax="{ speed: 1, center: true }">
-				Cząstka historii w każdym z nich.
-			</h2>
+			<figure class="absolute top-0 -right-2 w-full h-full parallax-25">
+				<img
+					class="absolute inset-0 h-full object-cover"
+					src="/img/ruins.jpg"
+					alt="zdjęcie przykładowych ruin"
+					loading="lazy"
+				/>
+				<Gradient class="gradient absolute inset-0 h-full" />
+			</figure>
+			<h2 class="relative z-10 md:ml-6-cols md:w-[32vw]">Cząstka historii w każdym z nich.</h2>
 		</header>
 		<main
 			class="

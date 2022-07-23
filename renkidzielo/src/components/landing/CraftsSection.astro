@@ -34,7 +34,7 @@ const pages = [
 ]
 ---
 
-<section class="relative mt-12 mb-18">
+<section class="relative mt-12 mb-18 preserve-3d">
 	<header>
 		<h3 class="mb-10 lg:heading-2">Odmiany Mojego Rzemiosła</h3>
 		<p class="mb-2 lg:w-8-cols">
@@ -44,14 +44,14 @@ const pages = [
 			{pages.map(({ name }) => <span>{name}</span>)}
 		</h6>
 	</header>
-	<ul class="craft-list">
+	<ul class="craft-list preserve-3d">
 		{pages.map(({ name, subtitle, synopsis, color, image, route }) => (
-			<li class="list-item" style={`--craft-color: ${color}`}>
-				<div class="title-group">
+			<li class="list-item preserve-3d" style={`--craft-color: ${color}`}>
+				<div class="title-group preserve-3d">
 					<h4>
 						<a href={route}>{name}</a>
 					</h4>
-					<figure v-rellax="{ speed: $screen.lg ? 1 : 0.5, center: true }">
+					<figure class="-parallax-10">
 						<img src={image} alt={name} loading="lazy" />
 					</figure>
 				</div>
@@ -145,7 +145,7 @@ const pages = [
 				@apply lg:absolute lg:bluu right-2 lg:mt-10 xl:right-1-cols;
 			}
 			> figure {
-				@apply absolute top-24 w-36 h-36;
+				@apply absolute z-10 top-24 w-40 h-40;
 				@apply flex justify-center items-center;
 				@apply lg:w-72 lg:h-72 lg:-left-20 lg:top-28 xl:w-80 xl:h-80;
 

@@ -5,16 +5,6 @@ module.exports = {
 	content: ["./src/**/*.{astro,html,js,jsx,md,ts,tsx}"],
 	mode: "jit",
 	theme: {
-		parallax: {
-			10: "0.10",
-			25: "0.25",
-			50: "0.5",
-			100: "1",
-			"-10": "-0.10",
-			"-25": "-0.25",
-			"-50": "-0.5",
-			"-100": "-1",
-		},
 		fontSize: {
 			sm: "1rem",
 			base: "1.2857rem",
@@ -250,11 +240,8 @@ module.exports = {
 	},
 	// eslint-disable-next-line global-require
 	plugins: [
-		plugin(({ addUtilities, matchUtilities, theme }) => {
+		plugin(({ addUtilities }) => {
 			const newUtilities = {
-				".preserve-3d": {
-					"transform-style": "preserve-3d",
-				},
 				".heading-1": {
 					"font-family": "Epilogue, Poppins, ui-sans-serif, system-ui, sans-serif",
 					"font-size": "clamp(4rem, 5.4vw, 5rem)",
@@ -362,17 +349,6 @@ module.exports = {
 			}
 
 			addUtilities(newUtilities, ["responsive", "hover"])
-
-			matchUtilities(
-				{
-					parallax: value => ({
-						transform: `translateZ(${value * -1}px) scale(${1 + value / 2})`,
-						// transform: translateZ(-1px) scale(1.5);
-						// transform: translateZ(-0.5px) scale(1.25);
-					}),
-				},
-				{ values: theme("parallax") },
-			)
 		}),
 	],
 }

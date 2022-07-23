@@ -16,6 +16,7 @@ import LogoIcon from "~icons/assets/logo"
 import ArrowDown from "~icons/assets/arrow-down"
 import ArrowRight from "~icons/assets/arrow-right"
 import GridIcon from "~icons/assets/grid"
+import Parallax from "@islands/ui/parallax/Parallax"
 ---
 
 <Layout
@@ -24,11 +25,21 @@ import GridIcon from "~icons/assets/grid"
 >
 	<MobilePageBanner title="Renkidzieło" subtitle="Projekt ekologiczny" icon={HomeIcon} />
 
-	<div class="start-wrapper">
-		<Gradient class="gradient" />
-		<figure class="gear-graphic rellax">
-			<img src="/img/THE GEAR.png" width="818" height="885" />
-		</figure>
+	<div class="overflow-hidden absolute -z-1 inset-x-0 top-0 h-[250vh]">
+		<Gradient class="gradient absolute -z-1 w-screen h-[250vw] top-0 left-0 lg:h-[250vh]" />
+		<Parallax
+			client:idle
+			z={12}
+			class={`absolute -z-1 -right-16 top-[6.75vh] w-[338.42px] h-[365.33px]
+			md:w-[494px] md:h-[533px] md:right-auto md:left-col-6 lg:left-col-8 md:ml-72 md:top-[10vh]`}
+		>
+			<figure class="gear-graphic rellax">
+				<img src="/img/THE GEAR.png" width="818" height="885" />
+			</figure>
+		</Parallax>
+	</div>
+
+	<div class="start-wrapper pt-64 sm:pt-40 md:pt-72 lg:pt-0">
 		<figure class="collage-graphic">
 			<img src="/img/lamps collage.png" width="900" height="900" loading="lazy" />
 		</figure>
@@ -49,24 +60,15 @@ import GridIcon from "~icons/assets/grid"
 	</div>
 
 	<style>
+		.gradient {
+			--gradient-shape: 110% 65%;
+			--gradient-position: 120% 40%;
+
+			@media screen and (min-width: 1000px) {
+				--gradient-shape: 95% 60%;
+			}
+		}
 		.start-wrapper {
-			@apply relative preserve-3d pt-64 sm:pt-40 md:pt-72 lg:pt-0;
-
-			.gradient {
-				@apply absolute -z-1 w-screen h-[250vw] top-0 left-0 parallax-100;
-				--gradient-shape: 110% 65%;
-				--gradient-position: 120% 40%;
-
-				@media screen and (min-width: 1000px) {
-					@apply h-[250vh];
-					--gradient-shape: 95% 60%;
-				}
-			}
-			.gear-graphic {
-				@apply absolute -z-1 -right-28 top-[2.75vh] parallax-50;
-				@apply w-[338.42px] h-[365.33px];
-				@apply md:w-[494px] md:h-[533px] md:right-auto md:left-col-6 lg:left-col-8 md:ml-72 md:top-[10vh];
-			}
 			.collage-graphic {
 				@apply hidden lg:block;
 				@apply absolute -z-1 h-[90vmin] w-[90vmin] right-[83vw] top-[18vh];
@@ -102,15 +104,13 @@ import GridIcon from "~icons/assets/grid"
 		<HighlightsSlider />
 	</section>
 
-	<section class="quality-section preserve-3d">
+	<section class="quality-section">
 		<Gradient class="gradient" />
-		<header class="preserve-3d">
-			<div class="circle-header preserve-3d">
-				<img
-					class="absolute -z-1 inset-0 object-contain parallax-25"
-					src="/img/spiral-gradient.svg"
-					loading="lazy"
-				/>
+		<header>
+			<div class="circle-header">
+				<Parallax client:idle z={5} class="absolute -z-1 inset-0">
+					<img class="object-contain" src="/img/spiral-gradient.svg" loading="lazy" />
+				</Parallax>
 				<LogoIcon class="w-24 mb-4" />
 				<h2 class="lg:heading-1">Renkidzieło</h2>
 				<h6 class="w-72 lg:w-auto text-center mt-4">To nie-zwykłe rękodzieło</h6>
@@ -208,21 +208,23 @@ import GridIcon from "~icons/assets/grid"
 		}
 	</style>
 
-	<section class="history-section relative my-24 preserve-3d lg:my-40">
+	<section class="history-section relative my-24 lg:my-40">
 		<header
 			class="
-				relative h-96 px-16 py-12 ml-12 preserve-3d
+				relative h-96 px-16 py-12 ml-12
 				sm:ml-32 md:mx-col-3 md:px-0 lg:h-[36rem] lg:py-16
 				flex items-end justify-start text-white
 			"
 		>
-			<figure class="absolute top-0 -right-2 w-full h-full parallax-10">
-				<img
-					class="absolute inset-0 h-full object-cover"
-					src="/img/ruins.jpg"
-					alt="zdjęcie przykładowych ruin"
-					loading="lazy"
-				/>
+			<figure class="absolute top-0 right-0 w-full h-full overflow-hidden">
+				<Parallax z={5} client:visible class="absolute top-0 right-0 w-full h-full">
+					<img
+						class="absolute -top-16 h-[calc(100%+8rem)] inset-x-0 object-cover"
+						src="/img/ruins.jpg"
+						alt="zdjęcie przykładowych ruin"
+						loading="lazy"
+					/>
+				</Parallax>
 				<Gradient class="gradient absolute inset-0 h-full" />
 			</figure>
 			<h2 class="relative z-10 md:ml-6-cols md:w-[32vw]">Cząstka historii w każdym z nich.</h2>

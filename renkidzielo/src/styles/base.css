@@ -12,7 +12,7 @@ html {
 }
 body {
 	@apply bg-white;
-	/* @apply overflow-y-scroll overflow-x-hidden; */
+	@apply overflow-y-scroll overflow-x-hidden h-screen relative;
 
 	font-feature-settings: "ordn" on, "cpsp" on;
 }

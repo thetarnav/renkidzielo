@@ -56,23 +56,9 @@ const {
 
 	<body>
 		<Navigation />
-
-		<div class="fixed inset-0">
-			<slot name="fixed"></slot>
-		</div>
-
-		<div
-			id="scrollingElement"
-			class="perspective-wrapper relative overflow-y-scroll overflow-x-hidden h-screen"
-		>
+		<div class="overflow-hidden w-screen">
 			<slot></slot>
-			<Footer />
 		</div>
-
-		<style>
-			.perspective-wrapper {
-				perspective: 2px;
-			}
-		</style>
+		<Footer />
 	</body>
 </html>

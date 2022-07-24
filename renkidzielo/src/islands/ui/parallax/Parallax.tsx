@@ -27,7 +27,7 @@ const mapRange = (
 // 	</Portal>
 // }
 
-const localPropNames = ["z", "ref"] as const
+const localPropNames = ["z", "ref", "centerToScreen"] as const
 
 const Parallax: ParentComponent<
 	JSX.IntrinsicElements["div"] & {

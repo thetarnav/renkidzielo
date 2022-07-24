@@ -14,7 +14,7 @@ import ArrowDown from "~icons/assets/arrow-down"
 ---
 
 <Layout title="Projekt Renkidzieło — Lampy">
-	<div class="fixed -z-1 top-0 inset-x-0 h-[180vh]">
+	<Parallax client:idle z={-10} centerToScreen class="fixed -z-1 top-0 inset-x-0 h-[180vh]">
 		<figure class="absolute inset-0 h-full">
 			<img
 				src="/img/bg-lamp-vector.svg"
@@ -23,7 +23,7 @@ import ArrowDown from "~icons/assets/arrow-down"
 			/>
 			<Gradient class="page-gradient -z-1 absolute inset-0 h-full" />
 		</figure>
-	</div>
+	</Parallax>
 
 	<MobilePageBanner title="/Lampy" icon={LampIcon} />
 
@@ -42,7 +42,7 @@ import ArrowDown from "~icons/assets/arrow-down"
 
 	<style>
 		.page-gradient {
-			--gradient-position: 67% 17%;
+			--gradient-position: 67% 16%;
 			--gradient-start: 5%;
 		}
 

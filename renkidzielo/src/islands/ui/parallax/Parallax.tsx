@@ -27,13 +27,15 @@ const mapRange = (
 // 	</Portal>
 // }
 
+const localPropNames = ["z", "ref"] as const
+
 const Parallax: ParentComponent<
 	JSX.IntrinsicElements["div"] & {
 		z: number
+		centerToScreen?: boolean
 	}
 > = props => {
-	const [, attrs] = splitProps(props, ["z", "ref"])
-	let parent!: HTMLDivElement
+	const { z, centerToScreen = false } = props
 
 	const resolved = children(() => props.children)
 
@@ -50,7 +52,18 @@ const Parallax: ParentComponent<
 			return
 		}
 
-		const translateDistance = (window.innerHeight / 50) * props.z
+		const vh = window.innerHeight
+		const sh = document.body.scrollHeight
+		const { top, height } = parent.getBoundingClientRect()
+
+		/** y position of the elements center */
+		const center = centerToScreen ? vh / 2 : window.scrollY + top + height / 2
+		/** scroll distance in each directions from the element's center in which the parallax effect is applied */
+		const runway = Math.max(center, sh - center)
+		const from = center - runway
+		const to = center + runway
+
+		const translateDistance = (runway / vh) * 10 * z
 
 		const a = ref.animate(
 			[
@@ -62,20 +75,16 @@ const Parallax: ParentComponent<
 		a.pause()
 		a.currentTime = 500
 
-		const { top, height } = parent.getBoundingClientRect()
-
-		const elPos = window.scrollY + top + height / 2
-		const from = elPos - window.innerHeight
-		const to = elPos + window.innerHeight
-
 		scroll(({ y }) => {
 			requestAnimationFrame(() => {
-				const current = y.current + window.innerHeight / 2
+				const current = y.current + vh / 2
 				a.currentTime = clamp(0, 999, mapRange(current, from, to, 0, 999))
 			})
 		})
 	})
 
+	const [, attrs] = splitProps(props, localPropNames)
+	let parent!: HTMLDivElement
 	return (
 		<div ref={parent} {...attrs}>
 			{resolved}

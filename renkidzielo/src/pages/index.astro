@@ -26,12 +26,13 @@ import Parallax from "@islands/ui/parallax/Parallax"
 	<MobilePageBanner title="Renkidzieło" subtitle="Projekt ekologiczny" icon={HomeIcon} />
 
 	<div class="overflow-hidden absolute -z-1 inset-x-0 top-0 h-[250vh]">
-		<Gradient class="gradient absolute -z-1 w-screen h-[250vw] top-0 left-0 lg:h-[250vh]" />
+		<Gradient class="gradient absolute w-screen h-[250vw] top-0 left-0 lg:h-[250vh]" />
 		<Parallax
 			client:idle
-			z={12}
-			class={`absolute -z-1 -right-16 top-[6.75vh] w-[338.42px] h-[365.33px]
-			md:w-[494px] md:h-[533px] md:right-auto md:left-col-6 lg:left-col-8 md:ml-72 md:top-[10vh]`}
+			z={13}
+			centerToScreen
+			class={`absolute -right-16 top-[6.75vh] w-[338.42px] h-[365.33px]
+				md:w-[494px] md:h-[533px] md:right-auto md:left-col-6 lg:left-col-8 md:ml-72 md:top-[10vh]`}
 		>
 			<figure class="gear-graphic rellax">
 				<img src="/img/THE GEAR.png" width="818" height="885" />
@@ -108,7 +109,7 @@ import Parallax from "@islands/ui/parallax/Parallax"
 		<Gradient class="gradient" />
 		<header>
 			<div class="circle-header">
-				<Parallax client:idle z={5} class="absolute -z-1 inset-0">
+				<Parallax client:visible z={5} class="absolute -z-1 inset-0">
 					<img class="object-contain" src="/img/spiral-gradient.svg" loading="lazy" />
 				</Parallax>
 				<LogoIcon class="w-24 mb-4" />

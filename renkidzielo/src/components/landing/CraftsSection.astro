@@ -1,6 +1,7 @@
 ---
 import Button from "@islands/ui/button/Button"
 import IconFrame from "@islands/ui/icon/IconFrame"
+import Parallax from "@islands/ui/parallax/Parallax"
 
 import ArrowRight from "~icons/assets/arrow-right"
 import EyeIcon from "~icons/assets/eye"
@@ -34,7 +35,7 @@ const pages = [
 ]
 ---
 
-<section class="relative mt-12 mb-18 preserve-3d">
+<section class="relative mt-12 mb-18">
 	<header>
 		<h3 class="mb-10 lg:heading-2">Odmiany Mojego Rzemiosła</h3>
 		<p class="mb-2 lg:w-8-cols">
@@ -44,16 +45,27 @@ const pages = [
 			{pages.map(({ name }) => <span>{name}</span>)}
 		</h6>
 	</header>
-	<ul class="craft-list preserve-3d">
+	<ul class="craft-list">
 		{pages.map(({ name, subtitle, synopsis, color, image, route }) => (
-			<li class="list-item preserve-3d" style={`--craft-color: ${color}`}>
-				<div class="title-group preserve-3d">
+			<li class="list-item" style={`--craft-color: ${color}`}>
+				<div class="title-group">
 					<h4>
 						<a href={route}>{name}</a>
 					</h4>
-					<figure class="-parallax-10">
-						<img src={image} alt={name} loading="lazy" />
-					</figure>
+					<Parallax z={-3} client:visible>
+						<figure
+							class="absolute z-10 top-24 w-40 h-40 pointer-events-none
+								flex justify-center items-center
+								lg:w-72 lg:h-72 lg:-left-20 lg:top-28 xl:w-80 xl:h-80"
+						>
+							<img src={image} alt={name} loading="lazy" class="h-full" />
+							<div
+								class="absolute top-4 left-2 w-24 h-24 opacity-80 rounded-full
+									lg:top-14 lg:left-8 lg:w-56 lg:h-56
+									bg-[color:var(--craft-color)] bg-blend-multiply mix-blend-multiply"
+							/>
+						</figure>
+					</Parallax>
 				</div>
 				<div class="content-group">
 					<div class="synopsis">
@@ -74,6 +86,9 @@ const pages = [
 
 <style>
 	section {
+		/* default color for items backgrounds */
+		--craft-color: theme(colors.secondary);
+
 		&:before {
 			content: "";
 			@apply absolute -z-1 top-0 inset-x-0 h-[120%] lg:h-[160%];
@@ -112,7 +127,7 @@ const pages = [
 			@apply absolute inset-0 -z-1 rounded-2xl lg:scale-x-[-1];
 			background: radial-gradient(
 				80% 163% at 92% 159%,
-				var(--craft-color, theme(colors.orange.500)) 0%,
+				var(--craft-color) 0%,
 				theme(colors.white) 95%
 			);
 		}
@@ -143,24 +158,6 @@ const pages = [
 			> h4 {
 				@apply bluu-small underline mt-6 ml-6;
 				@apply lg:absolute lg:bluu right-2 lg:mt-10 xl:right-1-cols;
-			}
-			> figure {
-				@apply absolute z-10 top-24 w-40 h-40;
-				@apply flex justify-center items-center;
-				@apply lg:w-72 lg:h-72 lg:-left-20 lg:top-28 xl:w-80 xl:h-80;
-
-				&:after {
-					content: "";
-					@apply absolute top-4 left-2 w-24 h-24 opacity-80;
-					@apply lg:top-14 lg:left-8 lg:w-56 lg:h-56;
-					@apply rounded-full bg-blend-multiply mix-blend-multiply;
-					background: var(--craft-color, theme(colors.secondary));
-				}
-
-				> img {
-					height: inherit;
-					height: -webkit-fill-available;
-				}
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 import { ParentComponent, splitProps, JSX, onMount, children } from "solid-js"
+import { warn } from "@solid-primitives/utils"
 import { scroll } from "motion"
 
 const clamp = (min: number, max: number, value: number) => Math.max(min, Math.min(max, value))
@@ -48,7 +49,7 @@ const Parallax: ParentComponent<
 			else ref = _ref
 		}
 		if (!ref) {
-			console.warn("Parallax children must be a single element")
+			warn("Parallax children must be a single element")
 			return
 		}
 

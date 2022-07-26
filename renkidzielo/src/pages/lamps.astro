@@ -14,7 +14,12 @@ import ArrowDown from "~icons/assets/arrow-down"
 ---
 
 <Layout title="Projekt Renkidzieło — Lampy">
-	<Parallax client:idle z={-10} centerToScreen class="fixed -z-1 top-0 inset-x-0 h-[180vh]">
+	<Parallax
+		client:idle
+		z={-8}
+		centerToScreen
+		class="fixed -z-1 top-0 inset-x-0 h-[180vh] h:h-[180vw]"
+	>
 		<figure class="absolute inset-0 h-full">
 			<img
 				src="/img/bg-lamp-vector.svg"
@@ -44,6 +49,11 @@ import ArrowDown from "~icons/assets/arrow-down"
 		.page-gradient {
 			--gradient-position: 67% 16%;
 			--gradient-start: 5%;
+
+			@media screen and (min-width: theme(screens.sm)) {
+				--gradient-position: 74% 20%;
+				--gradient-start: 10%;
+			}
 		}
 
 		.start-wrapper {
@@ -51,12 +61,12 @@ import ArrowDown from "~icons/assets/arrow-down"
 				@apply absolute -z-1 w-[110vw] h-[110vw] top-80vh left-0;
 				@apply sm:left-40vw sm:top-90vh sm:w-70vw sm:h-70vw md:top-80vh;
 				@apply lg:left-auto lg:h-[45vw] lg:w-[45vw] lg:right-[-5vw] lg:top-[60vh];
-				@include radial-mask(circle, left, 45%, 95%);
+				/* @include radial-mask(circle, left, 45%, 95%); */
 			}
 		}
 	</style>
 
-	<main class="mt-80 sm:mt-32 md:mt-80 xl:mt-48">
+	<main class="mt-80 xl:mt-48">
 		<div
 			class="py-4 mx-6 sm:mx-8 px-2
 				border-b border-gray-800

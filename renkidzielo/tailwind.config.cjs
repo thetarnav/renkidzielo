@@ -87,8 +87,14 @@ module.exports = {
 			zIndex: {
 				"-1": "-1",
 			},
+			screens: {
+				h: {
+					raw: "(orientation: landscape) and (min-width: 640px)",
+				},
+			},
 			aspectRatio: {
 				portrait: "4 / 5",
+				"portrait-h": "5 / 4",
 			},
 			borderRadius: {
 				DEFAULT: ".15rem",

@@ -34,12 +34,22 @@ const HighlightsSlider: Component<{ highlights: Highlight[] }> = props => {
 	})
 
 	return (
-		<div class="relative w-screen aspect-portrait mb-48">
-			<Slider items={props.highlights} onSlideChange={setIndex}>
-				{({ thumbnail, title }) => (
-					<img class="w-full h-full object-cover" src={thumbnail} alt={title} loading="lazy" />
-				)}
-			</Slider>
+		<div
+			class="relative aspect-portrait mb-48
+				sm:mx-18 h:aspect-video"
+		>
+			<div class="w-full h-full sm:mt-4">
+				<Slider items={props.highlights} onSlideChange={setIndex}>
+					{({ thumbnail, title }) => (
+						<img
+							class="w-full h-full object-cover h:object-contain"
+							src={thumbnail}
+							alt={title}
+							loading="lazy"
+						/>
+					)}
+				</Slider>
+			</div>
 
 			<div
 				class="

@@ -7,6 +7,8 @@ import GridIcon from "~icons/assets/grid"
 
 const SwipeUpToGallery: Component<{}> = props => {
 	let ref!: HTMLDivElement
+
+	// TODO: hide the element only if the screen is above it, and leave if below
 	const [isVisible] = createVisibilityObserver(() => ref, { threshold: 0.8 })
 
 	return (

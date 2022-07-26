@@ -97,6 +97,6 @@ a {
 
 @layer components {
 	.start-wrapper {
-		@apply relative min-h-[52rem] sm:h-[30rem] md:min-h-screen;
+		@apply relative min-h-[52rem] sm:min-h-[30rem] md:min-h-screen;
 	}
 }

@@ -21,6 +21,10 @@
 }
 .mobile-nav:global(.open) {
 	clip-path: polygon(0 -5%, 130% 0, 130% 130%, -20% 130%);
+	@media screen and (min-width: theme(screens.sm)) {
+		clip-path: polygon(-14% -40%, 130% -24%, 130% 130%, -25% 130%);
+	}
+
 	transition: clip-path 0.4s;
 	@apply opacity-100 pointer-events-auto;
 }

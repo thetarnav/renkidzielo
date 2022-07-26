@@ -8,7 +8,7 @@ import LampIcon from "~icons/assets/lamp.svg"
 import BeltBagIcon from "~icons/assets/belt-bag.svg"
 import PaintingIcon from "~icons/assets/painting.svg"
 
-type RouteUID = "start" | "lamps" | "belt-bags" | "paintings" | "gallery"
+type RouteUID = "start" | "lamps" | "belt-bags" | "paintings" | "gallery" | "contact" | "gallery"
 
 const currentPath = Astro.canonicalURL.pathname
 const currentUID = (currentPath.split("/")[1] || "start") as RouteUID
@@ -38,6 +38,16 @@ const routes: {
 		name: "Obrazy",
 		uid: "paintings",
 	},
+	{
+		path: "/contact",
+		name: "Kontakt",
+		uid: "contact",
+	},
+	{
+		path: "/gallery",
+		name: "Galeria",
+		uid: "gallery",
+	},
 ]
 
 const getRouteIcon = (uid: RouteUID) => {
@@ -57,8 +67,14 @@ const getRouteIcon = (uid: RouteUID) => {
 ---
 
 <MobileNavOverlay client:load>
-	<MobilePageBanner title="Renkidzieło" dark />
-	<nav>
+	<div class="sm:hidden">
+		<MobilePageBanner title="Renkidzieło" dark />
+	</div>
+	<nav
+		class="absolute inset-0 px-6 py-24
+			flex flex-col justify-center items-stretch
+			sm:flex-row sm:flex-wrap sm:items-center sm:content-center sm:justify-end sm:pt-6"
+	>
 		{routes.map(({ path, name, uid }) => {
 			const Icon = getRouteIcon(uid)
 			return (
@@ -73,12 +89,6 @@ const getRouteIcon = (uid: RouteUID) => {
 </MobileNavOverlay>
 
 <style>
-	nav {
-		@apply absolute inset-0 px-6 py-24
-    	flex flex-col justify-center items-stretch space-y-[0.2vh];
-		@apply sm:flex-row sm:flex-wrap sm:items-center sm:justify-end sm:space-y-[0.1vh] sm:pt-6;
-	}
-
 	.mobile-nav-item {
 		@apply pl-4 pt-4 pb-2 pr-12 border border-transparent
 			flex space-x-6 justify-end

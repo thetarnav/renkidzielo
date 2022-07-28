@@ -10,7 +10,7 @@ import PaintingIcon from "~icons/assets/painting.svg"
 
 type RouteUID = "start" | "lamps" | "belt-bags" | "paintings" | "gallery" | "contact" | "gallery"
 
-const currentPath = Astro.canonicalURL.pathname
+const currentPath = Astro.url.pathname
 const currentUID = (currentPath.split("/")[1] || "start") as RouteUID
 
 const routes: {

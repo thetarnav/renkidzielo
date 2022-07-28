@@ -1,108 +1,54 @@
 ---
-import Socials from "@islands/ui/socials/Socials"
-import MobileNavOverlay from "@islands/common/navigation/MobileNavOverlay"
-import MobilePageBanner from "@components/MobilePageBanner.astro"
-
 import HomeIcon from "~icons/assets/home.svg"
 import LampIcon from "~icons/assets/lamp.svg"
 import BeltBagIcon from "~icons/assets/belt-bag.svg"
 import PaintingIcon from "~icons/assets/painting.svg"
 
-type RouteUID = "start" | "lamps" | "belt-bags" | "paintings" | "gallery" | "contact" | "gallery"
+import DesktopNav from "./DesktopNav.astro"
+import MobileNav from "./MobileNav.astro"
+import { Route, RouteUID } from "./types"
 
-const currentPath = Astro.url.pathname
-const currentUID = (currentPath.split("/")[1] || "start") as RouteUID
+const currentUID = (Astro.url.pathname.split("/")[1] || "start") as RouteUID
 
-const routes: {
-	path: string
-	name: string
-	uid: RouteUID
-}[] = [
+const routes: Route[] = [
 	{
 		path: "/",
 		name: "Start",
 		uid: "start",
+		icon: HomeIcon,
 	},
 	{
 		path: "/lamps",
 		name: "Lampy",
 		uid: "lamps",
+		icon: LampIcon,
 	},
 	{
 		path: "/belt-bags",
 		name: "Nerki",
 		uid: "belt-bags",
+		icon: BeltBagIcon,
 	},
 	{
 		path: "/paintings",
 		name: "Obrazy",
 		uid: "paintings",
+		icon: PaintingIcon,
 	},
 	{
 		path: "/contact",
 		name: "Kontakt",
 		uid: "contact",
+		icon: HomeIcon,
 	},
 	{
 		path: "/gallery",
 		name: "Galeria",
 		uid: "gallery",
+		icon: HomeIcon,
 	},
 ]
-
-const getRouteIcon = (uid: RouteUID) => {
-	switch (uid) {
-		case "start":
-			return HomeIcon
-		case "lamps":
-			return LampIcon
-		case "belt-bags":
-			return BeltBagIcon
-		case "paintings":
-			return PaintingIcon
-		default:
-			return HomeIcon
-	}
-}
 ---
 
-<MobileNavOverlay client:load>
-	<div class="sm:hidden">
-		<MobilePageBanner title="Renkidzieło" dark />
-	</div>
-	<nav
-		class="absolute inset-0 px-6 py-24
-			flex flex-col justify-center items-stretch
-			sm:flex-row sm:flex-wrap sm:items-center sm:content-center sm:justify-end sm:pt-6"
-	>
-		{routes.map(({ path, name, uid }) => {
-			const Icon = getRouteIcon(uid)
-			return (
-				<a href={path} class={`mobile-nav-item ${uid === currentUID ? "visiting" : ""}`}>
-					<h2>{name}</h2>
-					<Icon class="icon" />
-				</a>
-			)
-		})}
-		<Socials class="absolute bottom-6 left-6" dark />
-	</nav>
-</MobileNavOverlay>
-
-<style>
-	.mobile-nav-item {
-		@apply pl-4 pt-4 pb-2 pr-12 border border-transparent
-			flex space-x-6 justify-end
-	 		heading-2
-			sm:w-1/2;
-	}
-	.mobile-nav-item.visiting {
-		@apply border-white opacity-30;
-	}
-
-	.icon {
-		@apply w-10 h-10;
-		& :global(path, rect) {
-			stroke-width: 2.8px;
-		}
-	}
-</style>
+<MobileNav routes={routes} currentUID={currentUID} />
+<DesktopNav routes={routes} currentUID={currentUID} />

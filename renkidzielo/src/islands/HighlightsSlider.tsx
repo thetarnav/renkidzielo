@@ -38,7 +38,7 @@ const HighlightsSlider: Component<{ highlights: Highlight[] }> = props => {
 			class="relative aspect-portrait mb-48
 				sm:mx-18 h:aspect-video"
 		>
-			<div class="w-full h-full sm:mt-4">
+			<div class="w-full h-full">
 				<Slider items={props.highlights} onSlideChange={setIndex}>
 					{({ thumbnail, title }) => (
 						<img

@@ -89,7 +89,7 @@ module.exports = {
 			},
 			screens: {
 				h: {
-					raw: "(orientation: landscape) and (min-width: 640px)",
+					raw: "(max-height: 640px) and (min-width: 640px)",
 				},
 			},
 			aspectRatio: {

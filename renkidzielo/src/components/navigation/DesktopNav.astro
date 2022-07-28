@@ -1,0 +1,83 @@
+---
+import IconButton from "@islands/ui/button/IconButton"
+import { DesktopNavOverlay } from "@islands/common/navigation"
+
+import LogoIcon from "~icons/assets/logo"
+import ConactIcon from "~icons/assets/chat"
+
+import { Route, RouteUID } from "./types"
+
+export interface Props {
+	routes: Route[]
+	currentUID: RouteUID
+}
+
+const { currentUID, routes } = Astro.props as Props
+
+const routesWitoutContact = routes.filter(route => route.uid !== "contact")
+---
+
+<DesktopNavOverlay client:media="(min-width: 768px)" class="desktop-nav">
+	<a class="project" href="/">
+		<LogoIcon class="logo" />
+		<h6 class="btn-text">Renkidzieło</h6>
+	</a>
+	<div class="pages">
+		{routesWitoutContact.map(({ name, uid, icon: Icon, path }) => (
+			<a class={`nav-item ${uid === currentUID ? "visiting" : ""}`} href={path}>
+				<Icon />
+				<span>{name}</span>
+			</a>
+		))}
+	</div>
+	<div class="additional">
+		<IconButton icon={ConactIcon} class="outline" href="/contact" />
+		<!-- <LangSwitch /> -->
+	</div>
+</DesktopNavOverlay>
+
+<style>
+	.desktop-nav {
+		@apply fixed z-[1000] top-0 inset-x-0 h-20 px-6 lg:px-10;
+		@apply hidden md:flex justify-between items-center;
+		@apply bg-transparent transition-colors duration-500;
+
+		&[data-scrolled="true"] {
+			@apply bg-white;
+		}
+	}
+
+	.project,
+	.additional {
+		@apply lg:min-w-[12rem];
+	}
+
+	.project {
+		@apply flex justify-start items-center space-x-3;
+		h6 {
+			@apply hidden lg:block;
+		}
+	}
+	.logo {
+		@apply w-14;
+	}
+
+	.additional {
+		@apply flex justify-end items-center space-x-4;
+	}
+
+	.pages {
+		@apply flex-shrink-0;
+		@apply flex justify-center items-center space-x-4;
+	}
+
+	.nav-item {
+		@apply min-w-[8rem] h-12 px-4;
+		@apply flex space-x-2 items-center justify-center;
+		@apply border border-transparent btn-text cursor-pointer rounded;
+
+		&.visiting {
+			@apply border-gray-900 opacity-30;
+		}
+	}
+</style>

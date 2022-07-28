@@ -1,4 +1,5 @@
 .wrapper {
+	@apply md:hidden;
 	--margin: theme(spacing.8);
 	--size: theme(spacing.18);
 	--shift: theme(spacing.1);

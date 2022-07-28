@@ -1,0 +1,52 @@
+---
+import Socials from "@islands/ui/socials/Socials"
+import { MobileNavOverlay } from "@islands/common/navigation"
+import MobilePageBanner from "@components/MobilePageBanner.astro"
+
+import { Route, RouteUID } from "./types"
+
+export interface Props {
+	routes: Route[]
+	currentUID: RouteUID
+}
+
+const { currentUID, routes } = Astro.props as Props
+---
+
+<MobileNavOverlay client:media="(max-width: 767px)">
+	<div class="sm:hidden">
+		<MobilePageBanner title="Renkidzieło" dark />
+	</div>
+	<nav
+		class="absolute inset-0 px-6 py-24
+			flex flex-col justify-center items-stretch
+			sm:flex-row sm:flex-wrap sm:items-center sm:content-center sm:justify-end sm:pt-6"
+	>
+		{routes.map(({ path, name, uid, icon: Icon }) => (
+			<a href={path} class={`mobile-nav-item ${uid === currentUID ? "visiting" : ""}`}>
+				<h2>{name}</h2>
+				<Icon class="icon" />
+			</a>
+		))}
+		<Socials class="absolute bottom-6 left-6" dark />
+	</nav>
+</MobileNavOverlay>
+
+<style>
+	.mobile-nav-item {
+		@apply pl-4 pt-4 pb-2 pr-12 border border-transparent
+			flex space-x-6 justify-end
+	 		heading-2
+			sm:w-1/2;
+	}
+	.mobile-nav-item.visiting {
+		@apply border-white opacity-30;
+	}
+
+	.icon {
+		@apply w-10 h-10;
+		& :global(path, rect) {
+			stroke-width: 2.8px;
+		}
+	}
+</style>

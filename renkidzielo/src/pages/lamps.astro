@@ -23,7 +23,7 @@ import ArrowDown from "~icons/assets/arrow-down"
 		<figure class="absolute inset-0 h-full">
 			<img
 				src="/img/bg-lamp-vector.svg"
-				class="absolute top-[10%] right-[12%] w-44 h-44 object-contain
+				class="absolute top-[15vh] right-[13vw] w-44 h-44 object-contain
 				md:w-60 md:h-60 lg:right-[25%]"
 			/>
 			<Gradient class="page-gradient -z-1 absolute inset-0 h-full" />
@@ -32,8 +32,12 @@ import ArrowDown from "~icons/assets/arrow-down"
 
 	<MobilePageBanner title="/Lampy" icon={LampIcon} />
 
-	<div class="start-wrapper pt-56 sm:pt-36 md:pt-72">
-		<figure v-rellax="{ speed: $screen.lg ? -3 : 1 }" class="collage-graphic rellax">
+	<div class="start-wrapper pt-56 sm:pt-36 md:h:pt-28 md:pt-72">
+		<figure
+			class="absolute -z-1 w-[110vw] h-[110vw] top-80vh left-0
+				sm:left-40vw sm:top-90vh sm:w-70vw sm:h-70vw md:top-[80%]
+				lg:left-auto lg:h-[45vw] lg:w-[45vw] lg:right-[-5vw] lg:top-[60vh]"
+		>
 			<img src="/img/lamps collage.png" width="900" height="900" />
 		</figure>
 
@@ -54,14 +58,10 @@ import ArrowDown from "~icons/assets/arrow-down"
 				--gradient-position: 74% 20%;
 				--gradient-start: 10%;
 			}
-		}
 
-		.start-wrapper {
-			.collage-graphic {
-				@apply absolute -z-1 w-[110vw] h-[110vw] top-80vh left-0;
-				@apply sm:left-40vw sm:top-90vh sm:w-70vw sm:h-70vw md:top-80vh;
-				@apply lg:left-auto lg:h-[45vw] lg:w-[45vw] lg:right-[-5vw] lg:top-[60vh];
-				/* @include radial-mask(circle, left, 45%, 95%); */
+			@media screen and (min-width: theme(screens.md)) and (orientation: landscape) {
+				--gradient-position: 74% 20%;
+				--gradient-start: 10%;
 			}
 		}
 	</style>

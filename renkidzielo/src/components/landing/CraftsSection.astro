@@ -1,7 +1,7 @@
 ---
 import Button from "@islands/ui/button/Button"
 import IconFrame from "@islands/ui/icon/IconFrame"
-import Parallax from "@islands/ui/parallax/Parallax"
+import { Parallax } from "@islands/ui/Parallax"
 
 import ArrowRight from "~icons/assets/arrow-right"
 import EyeIcon from "~icons/assets/eye"
@@ -52,7 +52,7 @@ const pages = [
 					<h4>
 						<a href={route}>{name}</a>
 					</h4>
-					<Parallax z={-3} client:visible>
+					<Parallax z={-3} client:idle>
 						<figure
 							class="absolute z-10 top-24 w-40 h-40 pointer-events-none
 								flex justify-center items-center

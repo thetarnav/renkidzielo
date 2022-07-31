@@ -7,20 +7,15 @@ import AfterContentCTA from "@components/landing/AfterContentCTA.astro"
 
 import Gradient from "@islands/ui/gradient/Gradient"
 import IconRing from "@islands/ui/icon/IconRing"
-import Parallax from "@islands/ui/parallax/Parallax"
+import { Parallax } from "@islands/ui/Parallax"
 
 import LampIcon from "~icons/assets/lamp"
 import ArrowDown from "~icons/assets/arrow-down"
 ---
 
 <Layout title="Projekt Renkidzieło — Lampy">
-	<Parallax
-		client:idle
-		z={-8}
-		centerToScreen
-		class="fixed -z-1 top-0 inset-x-0 h-[180vh] h:h-[180vw]"
-	>
-		<figure class="absolute inset-0 h-full">
+	<Parallax client:idle z={-8} centerToScreen>
+		<figure class="fixed -z-1 top-0 inset-x-0 h-[180vh] h:h-[180vw]">
 			<img
 				src="/img/bg-lamp-vector.svg"
 				class="absolute top-[15vh] right-[13vw] w-44 h-44 object-contain

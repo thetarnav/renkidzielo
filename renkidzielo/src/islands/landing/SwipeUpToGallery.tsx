@@ -1,15 +1,22 @@
 import { Component } from "solid-js"
-import { createVisibilityObserver } from "@solid-primitives/intersection-observer"
+import { createVisibilityObserver, withDirection } from "@solid-primitives/intersection-observer"
 import styles from "./SwipeUpToGallery.module.css"
 
 import ArrowUp from "~icons/assets/arrow-up"
 import GridIcon from "~icons/assets/grid"
 
 const SwipeUpToGallery: Component<{}> = props => {
-	let ref!: HTMLDivElement
+	let ref: HTMLDivElement | undefined
 
-	// TODO: hide the element only if the screen is above it, and leave if below
-	const [isVisible] = createVisibilityObserver(() => ref, { threshold: 0.8 })
+	const isVisible = createVisibilityObserver(
+		{ threshold: 0.8 },
+		withDirection((entry, { directionY, visible }) => {
+			if (!entry.isIntersecting && directionY === "Top" && visible) {
+				return true
+			}
+			return entry.isIntersecting
+		}),
+	)(() => ref)
 
 	return (
 		<div ref={ref} class="relative text-center body font-medium lg:hidden">

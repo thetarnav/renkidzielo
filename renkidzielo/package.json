@@ -11,11 +11,11 @@
 		"preview": "astro preview"
 	},
 	"dependencies": {
-		"@solid-primitives/intersection-observer": "^1.4.0",
+		"@solid-primitives/intersection-observer": "^2.0.0",
 		"@solid-primitives/keyed": "^1.0.0",
-		"@solid-primitives/props": "^2.1.8",
+		"@solid-primitives/props": "^2.2.1",
 		"@solid-primitives/scheduled": "^1.0.0",
-		"@solid-primitives/scroll": "^2.0.2",
+		"@solid-primitives/scroll": "^2.0.3",
 		"motion": "^10.13.1",
 		"rallax": "^0.0.3",
 		"solid-js": "^1.4.8",
@@ -25,8 +25,8 @@
 		"@astrojs/solid-js": "^0.4.1",
 		"@astrojs/tailwind": "^0.2.5",
 		"astro": "^1.0.0-rc.3",
-		"autoprefixer": "^10.4.7",
-		"tailwindcss": "^3.1.6",
-		"unplugin-icons": "^0.14.7"
+		"autoprefixer": "^10.4.8",
+		"tailwindcss": "^3.1.7",
+		"unplugin-icons": "^0.14.8"
 	}
 }
